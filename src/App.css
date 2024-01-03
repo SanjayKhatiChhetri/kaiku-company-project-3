@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+.app {
+  width: 100%;
+  align-items: center;
+}
+.navContainer{
+  position: fixed;
+  height: auto;
+  width: 100%;
+  padding-bottom: 34px;
+  left: 0;
+  right: 0;
+  background-color: #2758893f;
+  opacity:1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar{
+display: flex;
+justify-content: space-around;
+align-items: center;
+color: #414756;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.threedot{
+  align-self: flex-end;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.mapBox{
+  padding-top: 102px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding-bottom: 68px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: scroll;
+
+
+}
+.khali {
+  width: 100%;
+  height: 1000px;
+  border: 2px solid black;
+  background-color: blueviolet;
+}
+.footer{
+  margin-top: 34px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: auto;
+    width: 100%;
+    background-color: #2758893f;
+    padding: 10px;
+
+}
+.footerView{
+  display: flex;
+justify-content: space-around;
+align-items: center;
+text-align: center;
+
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.footerView figcaption {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #1C1E21;
+  text-align: center;
+  font-family: Roboto;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

@@ -5,17 +5,18 @@
 }
 
 .generalobs {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  
 }
 
 
 .navContainer{
-  position: fixed;
   height: auto;
   width: 100%;
+  align-items: center;
   padding-bottom: 34px;
   left: 0;
   right: 0;
@@ -33,12 +34,21 @@ font-size: 24px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+text-align: center;
 
+}
 
+.HeaderText {
+  align-items: center;
+  font-size: 24px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: normal;
 }
 
 .threedot{
   align-self: flex-end;
+  margin-top: 5px;
 }
 .mapBox{
   padding-top: 102px;
@@ -97,6 +107,7 @@ text-align: center;
 .map-box,
 .id-user,
 .description,
+.road-address-container,
 .Report-box {
   width: 373px;
   margin: 0px 0px 50px 0px;
@@ -166,10 +177,24 @@ text-align: center;
   list-style: none;
 }
 .icons-list > li {
-  margin-right: 14px;
+  margin-left: 10px;
 }
 
 .gps-access {
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d1d2d5;
+  background: #fff;
+  padding: 0px 20px 0px 20px;
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  display: flex;
+  
+}
+
+.road-address-container {
   height: 40px;
   display: flex;
   align-items: center;
@@ -179,8 +204,14 @@ text-align: center;
   border: 1px solid #d1d2d5;
   background: #fff;
   padding: 0px 20px 0px 20px;
+
 }
 .gps-access > h3 {
+  font-size: 17px;
+  font-weight: 700;
+  
+}
+.road-address-container > h5 {
   font-size: 17px;
   font-weight: 700;
 }
@@ -200,23 +231,30 @@ text-align: center;
 .road-address-box {
   font-size: 14px;
   font-weight: 600;
+  
 }
 
 .id-user {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0px 20px 0px 20px;
   margin: 0px;
-  margin-bottom: 10px
+  margin-top: 10px
   
 }
 
 .user-pic {
+  
   width: 32px;
   height: 32px;
   flex-shrink: 0;
   margin-right: 10px;
+}
+
+.user-name {
+  font-size: 20px;
+  font-weight: 600;
+  align-items: center;
+  font-style: normal;
 }
 
 .description {
@@ -241,6 +279,20 @@ text-align: center;
   resize: none;
 }
 
+.address-text{
+  padding: 0px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-style: none;
+  border-color: transparent;
+  overflow: auto;
+  outline: none;
+  resize: none;
+}
+
+
 .Report-box {
   display: flex;
   justify-content: center;
@@ -259,5 +311,126 @@ text-align: center;
   background: #e5e6ec;
   border: none;
   cursor: pointer;
+}
+
+.Input-arrow-container {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-top: -2px;
+}
+
+.Input-arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  -webkit-transform: (45deg);
+}
+
+
+.option {
+  height: 40px;
+  border-bottom: solid black;
+  padding-left: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.input-container {
+  width: 100%;
+  position: relative;
+  display: none;
+  
+  
+}
+
+.dropdown {
+  border: 1px solid black;
+  border-bottom: none;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  margin-top: 170px;
+  display: none;
+  
+ 
+}
+
+.location-p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f5533d;
+}
+
+
+.photos-grid {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  overflow: scroll, hidden;
+  margin-top: 15px;
+  gap: 1rem;
+}
+
+.photos-grid > li > img {
+  height: 42px;
+  width: 40px;
+  background-color: antiquewhite;
+  margin-right: 10px;
+}
+
+.file-choose-btn {
+  display: none;
+}
+
+.rest[data-uploading='true']{
+  opacity: 0.2;
+}
+
+.uploading[data-uploading='true']{
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.uploading[data-uploading='false'] {
+  display: none;
+}
+
+
+
+.success-parent[data-success='true']{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  /* align-items: end; */
+}
+
+.success-parent[data-success='true'] .success-message{
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 10px;
+  right: 10px;
+  /* left: 0px; */
+
+  width: 15%;
+  height: 50px;
+  background-color: green;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.success-parent[data-success='false']{
+  display: none;
 }
 

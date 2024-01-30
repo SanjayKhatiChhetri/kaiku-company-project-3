@@ -1,52 +1,62 @@
 import React from "react";
+
+import { useState } from "react";
 import {
-    CameraIconBlue,
-    MediaIc,
     GpsIc,
 } from "../../Icons/Customicons";
 
 
-function Utility({}){
+function Utility({setLatitude, setLongitude, lati, longi,setAddress,addr }){
+    let [latitude, setlatitude] = useState(null);
+    let [longitude, setlongitude] = useState(null);
 
+
+    function getgps() {
+        navigator.geolocation.getCurrentPosition((post) => {
+          setlatitude((p) => post.coords.latitude);
+          setlongitude((p) => post.coords.longitude);
+    
+          // parent set
+          setLatitude(post.coords.latitude)
+          setLongitude(post.coords.longitude)
+        });
+      }
 
     return(
         <>
-            <div className="cam-gps-access">
-                <h3>Lisää havaintoon</h3>
-                <list className="icons-list">
-                    <li>
-                        <MediaIc style={{cursor: 'pointer'}}/>
-                    </li>
 
-                    <li>
-                        <CameraIconBlue style={{cursor:'pointer'}}/>
-                    </li>
-
-
-                </list>
-            </div>
-
-            <div className="gps-access">
-                <h3>Tieosoite</h3>
+            <div className="road-address-container">
+                <h5>Sijainti</h5>
                 <div className="road-address">
+                        
                     <div className="road-address-box">
-                        Syötä manuaalisesti
+                        
+                        {
+                            
+                            lati !== 0 && longi !== 0
+                            ?
+                            <p className="location-p">{lati},{longi}</p>
+                            :
+                            ''
+                        }
                     </div>
                 </div>
-                <GpsIc style={{cursor:'pointer'}}/>
+                <list className="icons-list">
+                    <li onClick={getgps}>
+
+                        <GpsIc style={{cursor:'pointer'}}/>
+
+                    </li>
+
+                </list>
+
             </div>
 
-            <div className="gps-access">
-                <h3>Tyyppi</h3>
-            </div>
 
 
         
         </>
         
-
-
-
     );
 
 

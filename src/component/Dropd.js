@@ -1,20 +1,25 @@
 import React from 'react';
 import Select from 'react-select';
 
-const tyypit = [
-  { label: 'Ei laadunalitusta', value: 1 },
-  { label: 'Seurattava', value: 2 },
-  { label: 'Laadunalitus', value: 3 },
-
-];
-
-export default function Dropd() {
-  return (
-    <div>
-      <Select
-        options={tyypit}
-        placeholder="Tyyppi"
-        
+export default function Dropd({type,setType}) {
+  const tyypit = [
+      { label: 'Ei laadunalitusta', value: 1 },
+      { label: 'Seurattava', value: 2 },
+      { label: 'Laadunalitus', value: 3 },
+    
+    ];
+  function typeChanged(e){
+    setType(e)
+    }
+  
+  
+return (
+  <div className='drop-d'>
+    <Select
+      onChange={typeChanged}
+      options={tyypit}
+      placeholder="Tyyppi"
+      value={type}
 
         styles={{
           control: (provided,) => ({
@@ -24,6 +29,7 @@ export default function Dropd() {
             fontSize:19,
             paddingLeft: 12,
             fontWeight: "bold",
+           
          
           }),
         }}

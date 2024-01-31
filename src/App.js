@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import UploadPhoto from "./component/UploadPhoto";
 import Utility from "./component/Utility";
-import Identity from "./component/Identity";
 import Description from "./component/Description";
 import Post from "./component/Post";
 import Dropd from "./component/Dropd";
@@ -22,6 +21,8 @@ import RingLoader from "react-spinners/RingLoader";
 
 export default function App() {
 
+  const [selectedOption, setSelectedOption] = useState("");
+  let [typ,setTyp] = useState("")
   let [imgUrl, setImgUrl] = useState([]);
   let [lat, setLat] = useState(0)
   let [long, setLong] = useState(0)
@@ -29,6 +30,7 @@ export default function App() {
   let [imageFiles, setImageFiles] = useState([])
   let [isUploading, setIsUploading] = useState(false)
   let [isShowMessage, setIsShowMessage] = useState(false)
+  let [uploadingPer, setUploadingPer] = useState(0)
 
   useEffect(()=>{
     const readData = async()=>{
@@ -65,7 +67,9 @@ export default function App() {
       let docRef = await addDoc(collection(db, "data"), {
         latitude: lat,
         longitude: long,
-        description: dec
+        description: dec,
+        dropdown : typ
+
       })
       
       if(docRef){
@@ -118,6 +122,7 @@ export default function App() {
         setLong(0);
         setDes('');
         setImageFiles([]);
+        setTyp("");
       }
     }catch(e){
       console.log(`error while adding data in firestore: ${e}`)
@@ -138,9 +143,10 @@ export default function App() {
         {/* box for camera access  and photo select and gps  icons  */}
         <Utility lati={lat} longi={long} imgState={imgUrl} imgSetState={setImgUrl} imageFile={imageFiles} setImageFile={setImageFiles} setLatitude={setLat} setLongitude={setLong} />
         {/* maps */}
-        <Dropd />
+        <Dropd type={typ} setType={setTyp}/>
+        
         <Navbar/>
-        <Identity />
+      
         {/* box for description  */}
         <Description setDescription={setDes} desi={dec} />
         {/* post button */}

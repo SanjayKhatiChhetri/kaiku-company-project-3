@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MediaIc, GpsIc } from "../Public/Asset/Icons/CostumIcon";
 
 function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, setImageFile, lati , longi }) {
@@ -16,52 +16,15 @@ function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, 
       setLatitude(post.coords.latitude)
       setLongitude(post.coords.longitude)
     });
+
   }
- 
-  const captureImg = () => {
-    let input = document.querySelector("#captureImgInput");
-    input.click();
-  };
 
-  const capturemnaishImg = () => {
-    let input = document.querySelector("#mediaAccess");
-    input.click();
-  };
-
-  const imageSelected = (event) => {
-    let fileArray = event.target.files
-    console.log('top')
-    console.log(fileArray)
-
-    let filesOnlyArr = []
-    let urlOnlyArr = []
-
-    Object.entries(fileArray).map(file => {
-      console.log(file[1])
-
-      let img = file[1];
-      if (img) {
-        filesOnlyArr.push(img)
-
-        const imagUrl = URL.createObjectURL(img);
-        urlOnlyArr.push(imagUrl)
-      }
-
-    })
-
-    console.log('out of loop')
-    // console.log(filesOnlyArr)
-    // console.log(urlOnlyArr)
-
-    setImageFile([...imageFile, ...filesOnlyArr])
-    imgSetState([...imgState, ...urlOnlyArr])
-  };
 
   return (
     <>
       <div className="cam-gps-access">
-        <h3> Tieosoite </h3>
-        
+        <h3> Sijainti </h3>
+        <div className="road-address" >
         {
             lati !== 0 && longi !== 0
             ?
@@ -70,29 +33,9 @@ function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, 
             ''
             
           }
+          </div>
         <list className="icons-list">
-          {/* capture image */}
 
-          <input
-            onChange={imageSelected}
-            id="captureImgInput"
-            type="file"
-            name="files"
-            accept="image/*"
-            capture="environment"
-            multiple
-            className="file-choose-btn"
-          />
-
-          <input
-            onChange={imageSelected}
-            id="mediaAccess"
-            type="file"
-            name="files"
-            accept="image/*"
-            multiple
-            className="file-choose-btn"
-          />
           {/* gps */}
           <li onClick={getgps}>
             <GpsIc style={{ cursor: 'pointer' }} />

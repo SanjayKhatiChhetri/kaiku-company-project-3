@@ -7,6 +7,22 @@
   padding: 14%;
 }
 
+.road-address {
+  height: 32px;
+  width: 190px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d2d5;
+  background: #fff;
+
+}
+
+.drop-d {
+  padding: 0px 0px 50px 0px;
+}
+
 
 .navContainer{
   position: fixed;
@@ -30,6 +46,7 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 margin-top: 3%;
+margin-right: 7%;
 }
 
 .footer{
@@ -221,17 +238,21 @@ padding-left: 4%;
   margin-right: 14px;
 }
 
-.id-user {
+.user-n {
+  
   display: flex;
   align-items: center;
-  padding: 0px 20px 0px 20px;
-  margin: 0px;
+  
 }
+
 .user-pic {
   width: 32px;
   height: 32px;
   flex-shrink: 0;
   margin-right: 10px;
+  align-items: center;
+  display: flex;
+  margin-right: 5%;
 }
 
 .description {
@@ -334,11 +355,7 @@ padding-left: 4%;
     background: rgba(255, 255, 255, 0);
     padding: 25px 20px 20px 20px;
   }
-
-  .id-user {
-    margin: 0px;
-  }
-
+  
   .description {
     height: 150px;
     padding: 0px 20px 0px 20px;

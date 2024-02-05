@@ -25,16 +25,16 @@
 }
 
 .navbar{
-display: flex;
-justify-content: space-around;
-align-items: center;
-color: #414756;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #414756;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
 
 }
 
@@ -82,10 +82,9 @@ text-align: center;
 }
 .footerView{
   display: flex;
-justify-content: space-around;
-align-items: center;
-text-align: center;
-
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
 
 .footerView figcaption {
@@ -94,10 +93,10 @@ text-align: center;
   align-items: center;
   color: #1C1E21;
   text-align: center;
-  font-family: Roboto;
-  font-size: 11px;
+  font-family: Inter;
+  font-size: 17px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: normal;
 }
 
@@ -114,28 +113,30 @@ text-align: center;
 }
 
 .Photo-box-outline {
-  height: 140px;
+  height: 150px;
   flex-shrink: 0;
   border-radius: 10px;
   border: 1px solid #d2d3d5;
   background: rgba(255, 255, 255, 0);
-  padding: 25px 20px 20px 20px;
-  margin-top: 100px;
+  padding: 15px 20px 20px 20px;
+  margin-top: 70px;
  
 }
 
 .Photo-box-inner {
-  height: 100px;
+  height: 120px;
   flex-shrink: 0;
   background: #eaebed;
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .Photo-box-inner > h1 {
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
+  font-style: normal;
 }
 
 .cam-gps-access {
@@ -164,11 +165,20 @@ text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .container-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+  
+}
+
+.container-inner > h8 {
+  font-size: 17px;
+  font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .icons-list {
@@ -214,6 +224,7 @@ text-align: center;
 .road-address-container > h5 {
   font-size: 17px;
   font-weight: 700;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .road-address {
@@ -229,8 +240,8 @@ text-align: center;
 }
 
 .road-address-box {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   
 }
 
@@ -251,10 +262,11 @@ text-align: center;
 }
 
 .user-name {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
   align-items: center;
   font-style: normal;
+  
 }
 
 .description {
@@ -268,22 +280,29 @@ text-align: center;
 .description-box {
   /* border: 0px solid #fff; */
   padding: 0px;
-  font-size: 16px;
+  font-size: 17px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
   border-style: none;
   border-color: Transparent;
   overflow: auto;
   outline: none;
   resize: none;
+  font-family: 'Times New Roman', Times, serif;
+}
+.descLabel {
+  font-size: 17px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .address-text{
   padding: 0px;
-  font-size: 16px;
+  font-size: 17px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
   border-style: none;
   border-color: transparent;
@@ -306,8 +325,10 @@ text-align: center;
 }
 
 .Report-btn {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 17px;
+  font-weight: 700;
+  font-style: normal;
+  font-family: 'Times New Roman', Times, serif;
   background: #e5e6ec;
   border: none;
   cursor: pointer;
@@ -350,21 +371,30 @@ text-align: center;
 }
 
 .dropdown {
-  border: 1px solid black;
-  border-bottom: none;
-  box-sizing: border-box;
-  position: relative;
-  width: 100%;
-  margin-top: 170px;
-  display: none;
+  border: 1px solid #d2d3d5;
+  border-radius: 10px;
+  height: 42px;
+  display: flex;
+  padding: 0px 20px 0px 20px;
+  width: 373px;
+  margin-bottom: 50px;
   
- 
+  align-items: center;
+}
+.dropdown > h7 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-right: 10px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
+
 .location-p {
-  font-size: 14px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 600;
   color: #f5533d;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: normal;
 }
 
 
@@ -433,4 +463,5 @@ text-align: center;
 .success-parent[data-success='false']{
   display: none;
 }
+
 

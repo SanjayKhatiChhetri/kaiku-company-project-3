@@ -1,5 +1,6 @@
-import React   from 'react';
+import React from 'react';
 import Select from 'react-select';
+
 
 
 
@@ -19,29 +20,36 @@ export default function Dropd({type,setType}) {
     
     
   return (
-    <div>
+    <div className='dropdown'>
+      <h7>Tyyppi</h7>
       <Select
         onChange={typeChanged}
         options={tyypit}
-        placeholder="Tyyppi"
         value={type}
+        placeholder=""
+        
+        
         
         
 
         styles={{
           control: (provided,) => ({
             ...provided,
-            height: 40,
-            borderRadius: 10,
-            fontSize:19,
-            paddingLeft: 12,
-            fontWeight: "bold",
-            marginBottom:45,
+            height: 42,
+            borderRadius:10,
+            fontSize:17,
+            paddingLeft: 10,
+            fontWeight: 700,
+            display:'flex',
+            width:292,
+            fontStyle:"normal",
+            fontFamily:"Times New Roman, Times, serif"
             
          
           }),
         }}
       />
+      
     </div>
   );
 }

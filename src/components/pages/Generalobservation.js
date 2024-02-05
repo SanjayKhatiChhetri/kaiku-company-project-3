@@ -6,7 +6,6 @@ import Utility from "../modules/Utility";
 import Identity from "../modules/Identity";
 import Description from "../modules/Description";
 import Post from "../modules/Post";
-import Dropdown from "../modules/Dropdown";
 
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } from "@firebase/firestore"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
@@ -146,7 +145,7 @@ function Generalobservation() {
             <div className="navContainer">
                 <nav className="navbar">
                     <div className="user-pic"> <UserIc />
-                      <div className="user-name">Nimi</div>
+                     
                     </div>
      
                     <div>Yleishavainto</div>

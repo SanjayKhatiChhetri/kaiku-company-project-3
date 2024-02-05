@@ -11,13 +11,14 @@ export default function Description({ setDescription,desi }) {
   return (
     <>
       <div className="description">
+        <label className="descLabel"> Selite:  </label>
         <textarea
           onChange={descriptionChanged}
           value={desi}
           rows="5"
           cols="43"
           className="description-box"
-          placeholder="Selite"
+          placeholder=""
         />
       </div>
     </>

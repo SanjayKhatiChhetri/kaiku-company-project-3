@@ -50,6 +50,7 @@ export default function UploadPhoto({ imgState, imgSetState, imageFile, setImage
 
 return(
     <div className="Photo-box-outline" style={{cursor: 'pointer'}}>
+
         <input
             // enctype='multipart/form-data'
           onChange={imageSelected}
@@ -69,7 +70,7 @@ return(
 
                 </div>
 
-                <h3>Ota kuvia kameralla <br/> tai lisää kuvia puhelimesta</h3>
+                <h8>Ota kuvia kameralla <br/> tai lisää kuvia puhelimesta</h8>
             </div>
         </div>
 

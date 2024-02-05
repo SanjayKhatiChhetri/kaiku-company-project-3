@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import {
     GpsIc,
 } from "../../Icons/Customicons";
@@ -21,6 +21,9 @@ function Utility({setLatitude, setLongitude, lati, longi,setAddress,addr }){
           setLongitude(post.coords.longitude)
         });
       }
+      useEffect(()=>{
+        getgps()
+      },[]);
 
     return(
         <>

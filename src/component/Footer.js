@@ -1,7 +1,7 @@
 import React from "react";
-import home from "../../images/home-icn.svg";
-import report from "../../images/report-icn.svg";
-import general from "../../images/group.svg";
+import home from "../images/home-icn.svg";
+import report from "../images/report-icn.svg";
+import general from "../images/group.svg";
 
 
 export default function Footer() {

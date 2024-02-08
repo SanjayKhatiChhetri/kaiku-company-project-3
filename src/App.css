@@ -9,12 +9,44 @@
 
 
 
+.projectobs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20%;
+  
+}
+
+
+
 .dropd-place{
   color: #000000;
 }
 
 .photo-t{
   padding-left: 7%;
+}
+
+.mapBox{
+  padding-top: 102px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  padding-bottom: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: scroll;
+
+
+}
+
+.khali {
+  width: 100%;
+  height: 1000px;
+  border: 2px solid black;
+  background-color: blueviolet;
 }
 
 .threedot{
@@ -47,6 +79,20 @@
   background-color: #eaeaea;
   top: 0;
 }
+
+.point-btn {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+  
+}
+
+.continious-btn {
+  display: flex;
+  margin-top: 50px;
+  align-items: center;
+}
+
 
 
 .navbar{

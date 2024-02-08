@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function Description({ setDescription,desi }) {
 
   function descriptionChanged(e){
@@ -7,18 +8,31 @@ export default function Description({ setDescription,desi }) {
     console.log(e.target.value)
     setDescription(e.target.value)
   }
+  
 
   return (
     <>
       <div className="description">
-        <textarea
+        <textarea 
           onChange={descriptionChanged}
           value={desi}
           rows="5"
           cols="43"
           className="description-box"
-          placeholder="Selite"
-        />
+          placeholder="Kuvaus..."       
+          />
+
+            <style> 
+                {` 
+                    ::placeholder { 
+                        color: black;
+                        font-weight: 600;
+                        font-size: 20px;
+                        opacity: 1
+                    }` 
+                } 
+            </style> 
+
       </div>
     </>
   );

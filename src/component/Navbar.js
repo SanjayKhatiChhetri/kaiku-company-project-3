@@ -12,10 +12,10 @@ export default function Navbar() {
           </div>
           <div>YLEISHAVAINNOT</div>
           <div className="threedot">
-            <img src={vector} width={26.23} height={24} />
+            <img src={vector} width={26.23} height={24}  />
           </div>
         </nav>
-      </div>
+      </div> 
     </div>
   );
 }

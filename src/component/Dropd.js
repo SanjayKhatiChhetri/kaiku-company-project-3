@@ -18,7 +18,7 @@ return (
     <Select
       onChange={typeChanged}
       options={tyypit}
-      placeholder="Tyyppi"
+      placeholder={<div className="dropd-place"> Tyypit </div>}
       value={type}
 
         styles={{

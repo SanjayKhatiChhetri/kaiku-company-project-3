@@ -4,7 +4,21 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 14%;
+  padding: 20%;
+}
+
+
+
+.dropd-place{
+  color: #000000;
+}
+
+.photo-t{
+  padding-left: 7%;
+}
+
+.threedot{
+  padding-left: 4%;
 }
 
 .road-address {
@@ -26,7 +40,6 @@
 
 .navContainer{
   position: fixed;
-  height: auto;
   width: 100%;
   padding-bottom: 34px;
   left: 0;
@@ -44,9 +57,10 @@ color: #414756;
 font-size: 24px;
 font-style: normal;
 font-weight: 600;
-line-height: normal;
 margin-top: 3%;
-margin-right: 7%;
+margin-right: 0%;
+margin-left: 1%;
+
 }
 
 .footer{
@@ -65,7 +79,7 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 text-align: center;
-padding-left: 4%;
+padding-left: 7%;
 
 }
 
@@ -146,6 +160,7 @@ padding-left: 4%;
   padding: 25px 20px 20px 20px;
 }
 
+
 .Photo-box-inner {
   height: 144px;
   flex-shrink: 0;
@@ -153,15 +168,17 @@ padding-left: 4%;
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 .eclipse {
   width: 50px;
-  height: 52px;
+  height: 48px;
   border-radius: 50%;
   background-color: #d9dadf;
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .container-inner {
   display: flex;
@@ -194,7 +211,7 @@ padding-left: 4%;
   padding: 0px 20px 0px 20px;
 }
 .cam-gps-access > h3 {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -238,13 +255,6 @@ padding-left: 4%;
   margin-right: 14px;
 }
 
-.user-n {
-  
-  display: flex;
-  align-items: center;
-  
-}
-
 .user-pic {
   width: 32px;
   height: 32px;
@@ -252,8 +262,14 @@ padding-left: 4%;
   margin-right: 10px;
   align-items: center;
   display: flex;
-  margin-right: 5%;
+  
 }
+
+.general {
+  padding-left: 8%;
+}
+
+
 
 .description {
   height: 128px;
@@ -264,11 +280,12 @@ padding-left: 4%;
 
 .description-box {
   /* border: 0px solid #fff; */
-  padding: 0px;
-  font-size: 16px;
+  height: 120px;
+  width: 350px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  font-size: 15px;
   border-style: none;
   border-color: Transparent;
   overflow: auto;
@@ -364,9 +381,8 @@ padding-left: 4%;
   }
 
   .description-box {
-    /* border: 0px solid #fff; */
     padding: 0px;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;

@@ -19,6 +19,10 @@ function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, 
 
   }
 
+  useEffect(() => {
+    getgps()
+  },[]);
+
 
   return (
     <>

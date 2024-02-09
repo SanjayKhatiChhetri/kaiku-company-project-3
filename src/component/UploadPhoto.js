@@ -59,7 +59,7 @@ export default function UploadPhoto({ imgState, imgSetState, imageFile, setImage
             <div className="eclipse">
               <CameraIcon />
             </div>
-            <h3>Ota kuva kameralla tai lisää kuva puhelimesta</h3>
+            <h3 className="photo-t"> Ota kuva kameralla tai lisää kuva puhelimesta </h3>
           </div>
         </div>
         <list className="photos-grid">

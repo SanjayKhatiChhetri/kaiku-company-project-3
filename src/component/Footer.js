@@ -11,17 +11,17 @@ export default function Footer() {
         <footer className="footerView">
           <div className="home">
             <img src={home} width={32} height={32} alt="Home" />
-            <figcaption >Koti</figcaption>
+            <figcaption style={{fontSize:15}}>Koti</figcaption>
           </div>
 
           <div className="general">
             <img src={report} alt="Report" />
-            <figcaption >Yleishavainnot</figcaption>
+            <figcaption style={{fontSize:15}}>Yleishavainnot</figcaption>
           </div>
 
           <div className="project_observation">
             <img src={general} width={28} height={32} alt="General" />
-            <figcaption >Projekti havainnot</figcaption>
+            <figcaption style={{fontSize:15}}>Projekti havainnot</figcaption>
           </div>
         </footer>
       </div>

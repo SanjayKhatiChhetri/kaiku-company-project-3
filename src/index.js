@@ -6,12 +6,22 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Generalobservation from './pages/Generalobservation';
 import Projectobservation from './pages/Projectobservation';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Homepage from './pages/Homepage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <React.StrictMode>
-    <Projectobservation/>
-  </React.StrictMode>
+  <BrowserRouter basename='/'>
+    <Routes>
+      <Route path='/' element={<Homepage/>} />
+      <Route path='/Generalobservation' element={<Generalobservation/>} />
+      <Route path='/Projectobservation' element={<Projectobservation/>} />
+    </Routes>
+  
+  </BrowserRouter>
+    
+  
 );
 
 // If you want your app to work offline and load faster, you can change

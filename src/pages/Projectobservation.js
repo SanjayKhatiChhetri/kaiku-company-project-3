@@ -9,6 +9,7 @@ import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } fr
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 function Projectobservation() {
+
     const [alignment, setAlignment] = useState();
     const [clickCount, setClickCount] = useState(0);
     let [latitude, setlatitude] = useState(null);
@@ -19,8 +20,11 @@ function Projectobservation() {
     let [endlongitude, setendlongitude] = useState(0);
     let [name,setName] = useState("")
 
+    const tyypit = [
+        { label: 'Liikennermerkki vinossa' },
+        { label: 'Maakivi' },
+    ]
 
-  
 
     function getstartlocation() {
         navigator.geolocation.getCurrentPosition((post) => {
@@ -74,7 +78,20 @@ function Projectobservation() {
 
     }
 
-    
+    const pointbtnaddData = async() => {
+        try{
+            let docRef = await addDoc(collection(db,"data"), {
+                startlati: startlatitude,
+                startlongi: startlongitude,
+                type: tyypit,
+                desc: 'pistehavainto',
+                date: currDate,
+                time: currTime,
+            })
+        }catch(e){
+            console.log(`error adding data to firestore: ${e} `)
+        }
+    }
 
 
 
@@ -84,8 +101,8 @@ function Projectobservation() {
         try {
             let docRef = await addDoc(collection(db, "data"), {
                 
-                startlat: startlatitude,
-                startlong: startlongitude,
+                startlati: startlatitude,
+                startlongi: startlongitude,
                 endlat: endlatitude,
                 endlong: endlongitude,
                 date: currDate,
@@ -104,11 +121,13 @@ function Projectobservation() {
         getendlocation()
       },[]);
 
+    useEffect(() => {
+        getstartlocation()
+      },[]);  
 
 
     return (
         <div className="projectobs">
-            
 
             <div className="navContainer">
                 <nav className="navbar">
@@ -128,15 +147,15 @@ function Projectobservation() {
 
             <div className="point-btn">
                 <Button variant="contained" size="large" onClick={()=>{
-                    alert("clicked")
-                    console.log("aika on : ", currTime)
-                    console.log("Päivä on: ", currDate)
-                    console.log("alkulokaatio", startlatitude)
-                    console.log("loppulokaatio", endlatitude)
+                   getstartlocation()
+                   pointbtnaddData()
+
+                   
                 }}>Pistehavainto</Button>
 
             </div>
-
+            
+            
             <div className="continious-btn">
 
                 <ToggleButtonGroup
@@ -155,14 +174,7 @@ function Projectobservation() {
                 </ToggleButtonGroup>
                 
             
-            </div>    
-
-            
-
-
-
-
-
+            </div>         
 
         </div>
     );

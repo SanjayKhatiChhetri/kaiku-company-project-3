@@ -13,12 +13,14 @@ import Navbar from "../component/Navbar";
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } from "@firebase/firestore"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../component/FirebaseConfig";
+import Alert from "@mui/material/Alert";
 
 // resizer
 import Resizer from "@meghoshpritam/react-image-file-resizer";
 
 // spinner
 import RingLoader from "react-spinners/RingLoader";
+import { Button } from "@mui/material";
 
  function Generalobservation() {
 
@@ -33,6 +35,8 @@ import RingLoader from "react-spinners/RingLoader";
   let [isShowMessage, setIsShowMessage] = useState(false)
   let [uploadingPer, setUploadingPer] = useState(0)
 
+ 
+
   useEffect(()=>{
     const readData = async()=>{
       await getDocs(collection(db, "images")).then((querySnap)=>{
@@ -44,6 +48,8 @@ import RingLoader from "react-spinners/RingLoader";
 
     // readData();
   },[])
+
+  
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -135,7 +141,7 @@ import RingLoader from "react-spinners/RingLoader";
   }
 
   return (
-
+  
     <div className="App">
       <div className="rest">
         {/* the first box for uploding photo */}

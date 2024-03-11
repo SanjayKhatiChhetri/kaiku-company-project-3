@@ -2,12 +2,14 @@ import React from 'react';
 import Select from 'react-select';
 
 export default function Dropd({type,setType}) {
+
   const tyypit = [
       { label: 'Ei laadunalitusta', value: 1 },
       { label: 'Seurattava', value: 2 },
       { label: 'Laadunalitus', value: 3 },
     
     ];
+    
   function typeChanged(e){
     setType(e)
     }

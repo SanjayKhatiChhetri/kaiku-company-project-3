@@ -18,7 +18,6 @@ function Projectobservation() {
     let [startlongitude, setstartlongitude] = useState(0);
     let [endlatitude, setendlatitude] = useState(0);
     let [endlongitude, setendlongitude] = useState(0);
-    let [name,setName] = useState("")
 
     const tyypit = [
         { label: 'Liikennermerkki vinossa' },
@@ -28,15 +27,13 @@ function Projectobservation() {
 
     function getstartlocation() {
         navigator.geolocation.getCurrentPosition((post) => {
+
             setlatitude((p) => post.coords.latitude);
             setlongitude((p) => post.coords.longitude);
       
             setstartlatitude(post.coords.latitude);
             setstartlongitude(post.coords.longitude);
             
-
-
-        
           });
     }
 
@@ -54,19 +51,19 @@ function Projectobservation() {
 
     const currTime = new Date().toLocaleTimeString(); //Get current time
     const currDate = new Date().toLocaleDateString(); //Get current date
+    
 
     const handleChange = (event, newAlignment) => { //Handle togglebutton alignment
         setAlignment(newAlignment);
     }
 
 
-    const handleClick = () => {
+    const handleClick = () => { //handle togglebutton clicks
         switch(clickCount) {
 
             case 0:
                 getstartlocation();
                 setClickCount(1);
-                setName("Vesakointipuute")
                 break;
 
             case 1:
@@ -78,7 +75,7 @@ function Projectobservation() {
 
     }
 
-    const pointbtnaddData = async() => {
+    const pointbtnaddData = async() => { //for point button data add
         try{
             let docRef = await addDoc(collection(db,"data"), {
                 startlati: startlatitude,
@@ -96,7 +93,7 @@ function Projectobservation() {
 
 
 
-    const firebaseData = async() => {
+    const firebaseData = async() => { //for togglebutton data add
 
         try {
             let docRef = await addDoc(collection(db, "data"), {
@@ -107,7 +104,7 @@ function Projectobservation() {
                 endlong: endlongitude,
                 date: currDate,
                 time: currTime,
-                desc: name,
+                desc: 'Vesakointipuute',
 
             })
 

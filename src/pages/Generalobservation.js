@@ -7,24 +7,16 @@ import Post from "../component/Post";
 import Dropd from "../component/Dropd";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
-
-
-
+//database stuff
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } from "@firebase/firestore"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../component/FirebaseConfig";
-import Alert from "@mui/material/Alert";
-
 // resizer
 import Resizer from "@meghoshpritam/react-image-file-resizer";
 
-// spinner
-import RingLoader from "react-spinners/RingLoader";
-import { Button } from "@mui/material";
 
  function Generalobservation() {
 
-  const [selectedOption, setSelectedOption] = useState("");
   let [typ,setTyp] = useState("")
   let [imgUrl, setImgUrl] = useState([]);
   let [lat, setLat] = useState(0)
@@ -37,7 +29,7 @@ import { Button } from "@mui/material";
 
  
 
-  useEffect(()=>{
+  useEffect(()=>{ //read database data
     const readData = async()=>{
       await getDocs(collection(db, "images")).then((querySnap)=>{
         querySnap.docs.map(doc=>{
@@ -51,7 +43,7 @@ import { Button } from "@mui/material";
 
   
 
-  const resizeFile = (file) =>
+  const resizeFile = (file) => //resize images
     new Promise((resolve) => {
       Resizer.imageFileResizer({
         file,
@@ -68,7 +60,7 @@ import { Button } from "@mui/material";
       });
     });
 
-  const addData = async()=>{
+  const addData = async()=>{  //add data to database
 
     try{
       let docRef = await addDoc(collection(db, "data"), {

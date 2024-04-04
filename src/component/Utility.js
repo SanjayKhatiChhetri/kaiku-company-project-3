@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { MediaIc, GpsIc } from "../Public/Asset/Icons/CostumIcon";
+import { GpsIc } from "../Public/Asset/Icons/CostumIcon";
 
-function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, setImageFile, lati , longi }) {
+function Utility({ setLatitude, setLongitude, lati , longi }) {
+
   let [latitude, setlatitude] = useState(null);
   let [longitude, setlongitude] = useState(null);
-  let [imageFiles, setImageFiles] = useState([]);
-  let [images, setImages] = useState([]);
+ 
 
   function getgps() {
     navigator.geolocation.getCurrentPosition((post) => {
@@ -19,7 +19,7 @@ function Utility({ imgState, imgSetState, setLatitude, setLongitude, imageFile, 
 
   }
 
-  useEffect(() => {
+  useEffect(() => { //gets the gps when app starts
     getgps()
   },[]);
 

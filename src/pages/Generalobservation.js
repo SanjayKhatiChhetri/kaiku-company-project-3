@@ -7,20 +7,16 @@ import Post from "../component/Post";
 import Dropd from "../component/Dropd";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
-
-
+//database stuff
 import { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } from "@firebase/firestore"
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../component/FirebaseConfig";
-
 // resizer
 import Resizer from "@meghoshpritam/react-image-file-resizer";
 
 
-
  function Generalobservation() {
 
-  const [selectedOption, setSelectedOption] = useState("");
   let [typ,setTyp] = useState("")
   let [imgUrl, setImgUrl] = useState([]);
   let [lat, setLat] = useState(0)
@@ -31,7 +27,9 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
   let [isShowMessage, setIsShowMessage] = useState(false)
   let [uploadingPer, setUploadingPer] = useState(0)
 
-  useEffect(()=>{
+ 
+
+  useEffect(()=>{ //read database data
     const readData = async()=>{
       await getDocs(collection(db, "images")).then((querySnap)=>{
         querySnap.docs.map(doc=>{
@@ -43,7 +41,9 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
     // readData();
   },[])
 
-  const resizeFile = (file) =>
+  
+
+  const resizeFile = (file) => //resize images
     new Promise((resolve) => {
       Resizer.imageFileResizer({
         file,
@@ -60,7 +60,7 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
       });
     });
 
-  const addData = async()=>{
+  const addData = async()=>{  //add data to database
 
     try{
       let docRef = await addDoc(collection(db, "data"), {
@@ -133,7 +133,7 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
   }
 
   return (
-
+  
     <div className="App">
       <div className="rest">
         {/* the first box for uploding photo */}

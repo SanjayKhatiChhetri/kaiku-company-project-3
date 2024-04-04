@@ -3,7 +3,7 @@ import React from "react";
 
 export default function Description({ setDescription,desi }) {
 
-  function descriptionChanged(e){
+  function descriptionChanged(e){ //enables writing in description field
     console.log('from description')
     console.log(e.target.value)
     setDescription(e.target.value)

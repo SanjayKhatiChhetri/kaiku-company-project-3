@@ -30,19 +30,18 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
  
 
   useEffect(()=>{ //read database data
-    const readData = async()=>{
-      await getDocs(collection(db, "images")).then((querySnap)=>{
-        querySnap.docs.map(doc=>{
-          console.log(doc.data())
-        })
-      })
-    }
+    // const readData = async()=>{
+    //   await getDocs(collection(db, "images")).then((querySnap)=>{
+    //     querySnap.docs.map(doc=>{
+    //       console.log(doc.data())
+    //     })
+    //   })
+    // }
 
     // readData();
   },[])
 
   
-
   const resizeFile = (file) => //resize images
     new Promise((resolve) => {
       Resizer.imageFileResizer({
@@ -60,78 +59,128 @@ import Resizer from "@meghoshpritam/react-image-file-resizer";
       });
     });
 
-  const addData = async()=>{  //add data to database
+   const addData = async () => {
+     console.log('after submit')
+     console.log(imageFiles)
 
-    try{
-      let docRef = await addDoc(collection(db, "data"), {
-        latitude: lat,
-        longitude: long,
-        description: dec,
-        dropdown : typ
+     try {
 
-      })
-      
-      if(docRef){
-        imageFiles.map(async(file)=>{
-          console.log('from app.js inside loop')
+       if ('serviceWorker' in navigator && 'SyncManager' in window) {
+         navigator.serviceWorker.ready
+           .then(async (sw) => {
 
-          const image = await resizeFile(file);
-          console.log('from app.js')
-          console.log(image)
+             let images = [];
 
-          fetch(image)
-          .then(res=>res.blob())
-          .then(blob=>{
-            let randFileName = Math.floor(Math.random() * 1000) + 1;
-            let timeNow = Date.now()
-            const resizedFile = new File([blob], `${randFileName+timeNow}.jpg`, { type: "image/jpeg" });
-            
-            const storageRef = ref(storage, 'new_images/' + resizedFile.name);
-            const uploadTask = uploadBytesResumable(storageRef, resizedFile);
+             const imagePromises = imageFiles.map(async (file) => {
 
-            uploadTask.on('state_changed',
-            snapshot =>{
-              setIsUploading(true)
-              var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log('Upload is ' + progress + '% done');
-            },
-            error =>{
-              console.error("Error uploading file: ", error);
-            },
-            ()=>{
-              // Handle successful uploads on complete
-              getDownloadURL(uploadTask.snapshot.ref).then( async (downloadURL) => {
-                await updateDoc(docRef, {
-                  images: arrayUnion(downloadURL)
-                });
-                setIsUploading(false)
-                setIsShowMessage(true)
-                setTimeout(()=>{
-                  setIsShowMessage(false)
-                }, 3000)
-                console.log('File available at', downloadURL);
-              });
-            }
-            )
+               const image = await resizeFile(file);
 
-          })
-        })
-        setImgUrl([]);
-        setLat(0);
-        setLong(0);
-        setDes('');
-        setImageFiles([]);
-        setTyp("");
-      }
-    }catch(e){
-      console.log(`error while adding data in firestore: ${e}`)
-    }
+               const response = await fetch(image);
+               const blob = await response.blob();
 
-    console.log('from bottom')
-    // console.log(imageFiles)
+               let randFileName = Math.floor(Math.random() * 1000) + 1;
+               let timeNow = Date.now()
+               const resizedFile = new File([blob], `${randFileName + timeNow}.jpg`, { type: "image/jpeg" });
+               images.push(resizedFile)
+             })
 
-  }
+             await Promise.all(imagePromises);
 
+
+             let post = {
+               id: new Date().toISOString(),
+               latitude: lat,
+               longitude: long,
+               description: dec,
+               images: imageFiles
+             }
+
+             writeData('sync-posts', post)
+               .then(() => {
+                 console.log('sync registering')
+                 return sw.sync.register('sync-new-post');
+               })
+               .then(() => {
+                 console.log('sync registered')
+                 console.log('New post registered');
+               })
+               .catch(err => {
+                 console.log('sync registration failed')
+                 console.log(`'new post registration failed: ${err}'`);
+               })
+           })
+       } else {
+         console.log('from firebase')
+         let docRef = await addDoc(collection(db, "data"), {
+           latitude: lat,
+           longitude: long,
+           description: dec
+         })
+
+         if (docRef) {
+           imageFiles.map(async (file) => {
+             console.log('from app.js inside loop')
+
+             const image = await resizeFile(file);
+             console.log('from app.js')
+             console.log(image)
+
+             fetch(image)
+               .then(res => res.blob())
+               .then(blob => {
+                 let randFileName = Math.floor(Math.random() * 1000) + 1;
+                 let timeNow = Date.now()
+                 const resizedFile = new File([blob], `${randFileName + timeNow}.jpg`, { type: "image/jpeg" });
+
+                 const storageRef = ref(storage, 'new_images/' + resizedFile.name);
+                 const uploadTask = uploadBytesResumable(storageRef, resizedFile);
+
+                 uploadTask.on('state_changed',
+                   snapshot => {
+                     setIsUploading(true)
+                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                     console.log('Upload is ' + progress + '% done');
+                   },
+                   error => {
+                     console.error("Error uploading file: ", error);
+                   },
+                   () => {
+                     // Handle successful uploads on complete
+                     getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
+                       await updateDoc(docRef, {
+                         images: arrayUnion(downloadURL)
+                       });
+                       setIsUploading(false)
+                       setIsShowMessage(true)
+                       setTimeout(() => {
+                         setIsShowMessage(false)
+                       }, 3000)
+
+                       console.log('File available at', downloadURL);
+                     });
+                   }
+                 )
+
+               })
+           })
+
+           setImgUrl([])
+           setLat(0)
+           setLong(0)
+           setDes('')
+           setImageFiles([])
+
+         }
+
+       }
+
+     } catch (e) {
+       console.log(`error while adding data in firestore: ${e}`)
+     }
+
+   }
+
+   
   return (
   
     <div className="App">

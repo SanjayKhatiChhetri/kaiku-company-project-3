@@ -15,16 +15,15 @@ const notify = () => toast.promise(promise, {
 
   return (
     <>
-      <div className="Report-box">
-        <Toaster />
-        <button
-          type="submit"
-          className="Report-btn"
-          value="Report"
-          onClick={() =>{
+      <div
+        className="Report-box"
+        onClick={() => {
           notify();
           onSubmit();
-          }}>
+        }}
+      >
+        <Toaster />
+        <button type="submit" className="Report-btn" value="Report">
           Lähetä
         </button>
       </div>

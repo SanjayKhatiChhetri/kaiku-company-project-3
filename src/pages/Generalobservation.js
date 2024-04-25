@@ -7,6 +7,8 @@ import Post from "../component/Post";
 import Dropd from "../component/Dropd";
 import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
+import ShowMessage from "../component/ShowMessage";
+import TotalPostCounter from "../component/TotalPostCounter";
 //database stuff
 import {
   collection,
@@ -32,15 +34,44 @@ function Generalobservation() {
   let [isUploading, setIsUploading] = useState(false);
   let [isShowMessage, setIsShowMessage] = useState(false);
   let [uploadingPer, setUploadingPer] = useState(0);
+  let [message, setMessage] = useState("");
+  let [isOffline, setIsOffline] = useState(false);
+  let [allIndexedData, setAllIndexedData] = useState([]);
+  let [totalPost, setTotalPost] = useState(null);
 
   useEffect(() => {
-    const handleOnlineStatus = () => {
+    console.log("all indexed data");
+    readAllData("sync-posts").then((data) => {
+      console.log("all indexed data from app.js");
+      console.log(data);
+      setTotalPost(data.length);
+    });
+  }, [allIndexedData]);
+
+  useEffect(async () => {
+    if (isOffline) {
+      console.log("offline");
+    }
+
+    const handleOnlineStatus = async () => {
       if (navigator.onLine) {
         console.log("Site is online");
-        // alert("Site is online");
+        setMessage("Site is online");
+        setIsOffline(false);
+        readAllData("sync-posts").then((data) => {
+          console.log("all indexed data from app.js when online");
+          console.log(data);
+          setTotalPost(data.length);
+        });
       } else {
         console.log("Site is offline");
-        alert("Site is offline");
+        setMessage("Site is Offline");
+        setIsOffline(true);
+        readAllData("sync-posts").then((data) => {
+          console.log("all indexed data from app.js");
+          console.log(data);
+          setTotalPost(data.length);
+        });
       }
     };
 
@@ -48,7 +79,6 @@ function Generalobservation() {
 
     window.addEventListener("online", handleOnlineStatus);
     window.addEventListener("offline", handleOnlineStatus);
-
     return () => {
       window.removeEventListener("online", handleOnlineStatus);
       window.removeEventListener("offline", handleOnlineStatus);
@@ -117,6 +147,8 @@ function Generalobservation() {
             .then(() => {
               console.log("sync registered");
               console.log("New post registered");
+              console.log(post);
+              setAllIndexedData([...allIndexedData, post]);
             })
             .catch((err) => {
               console.log("sync registration failed");
@@ -198,14 +230,17 @@ function Generalobservation() {
           setImageFiles([]);
         }
       }
-    } catch (e) {
-      console.log(`error while adding data in firestore: ${e}`);
+    } catch (err) {
+      console.error(`error while adding data in firestore: ${err}`);
     }
   };
 
   return (
     <div className="App">
       <div className="rest">
+        {isOffline && <ShowMessage message={message} />}
+        {isOffline && <TotalPostCounter count={totalPost} />}
+        {/* {isOffline ? <div></div> : ""} */}
         {/* the first box for uploding photo */}
         <UploadPhoto
           imgState={imgUrl}

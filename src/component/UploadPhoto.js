@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { CameraIcon } from "../Public/Asset/Icons/CostumIcon";
 
-export default function UploadPhoto({ imgState, imgSetState, imageFile, setImageFile }) {
-
+export default function UploadPhoto({
+  imgState,
+  imgSetState,
+  imageFile,
+  setImageFile,
+}) {
   const captureImg = () => {
     console.log("first");
     let input = document.querySelector("#Camera-Acces");
@@ -10,37 +14,35 @@ export default function UploadPhoto({ imgState, imgSetState, imageFile, setImage
   };
 
   const imageSelected = (event) => {
-    let fileArray = event.target.files
-    console.log('top')
-    console.log(fileArray)
+    let fileArray = event.target.files;
+    console.log("top");
+    console.log(fileArray);
 
-    let filesOnlyArr = []
-    let urlOnlyArr = []
+    let filesOnlyArr = [];
+    let urlOnlyArr = [];
 
-    Object.entries(fileArray).map(file=>{
-      console.log(file[1])
+    Object.entries(fileArray).map((file) => {
+      console.log(file[1]);
 
       let img = file[1];
       if (img) {
-        filesOnlyArr.push(img)
-  
+        filesOnlyArr.push(img);
+
         const imagUrl = URL.createObjectURL(img);
-        urlOnlyArr.push(imagUrl)
+        urlOnlyArr.push(imagUrl);
       }
+    });
 
-    })
+    console.log("out of loop");
 
-    console.log('out of loop')
-
-    setImageFile([...imageFile, ...filesOnlyArr])
-    imgSetState([...imgState, ...urlOnlyArr])
+    setImageFile([...imageFile, ...filesOnlyArr]);
+    imgSetState([...imgState, ...urlOnlyArr]);
   };
 
   return (
     <>
-    
-      <div className="Photo-box-outline" style={{ cursor: 'pointer' }}>
-        
+      <div className="Photo-box-outline" style={{ cursor: "pointer" }}>
+
         <input
           // enctype='multipart/form-data'
           onChange={imageSelected}
@@ -52,14 +54,16 @@ export default function UploadPhoto({ imgState, imgSetState, imageFile, setImage
           multiple
           className="file-choose-btn"
         />
-        
+
         <div onClick={captureImg} className="Photo-box-inner">
-          
           <div className="container-inner">
             <div className="eclipse">
               <CameraIcon />
             </div>
-            <h3 className="photo-t"> Ota kuva kameralla tai lisää kuva puhelimesta </h3>
+            <h3 className="photo-t">
+              {" "}
+              Ota kuva kameralla tai lisää kuva puhelimesta{" "}
+            </h3>
           </div>
         </div>
         <list className="photos-grid">

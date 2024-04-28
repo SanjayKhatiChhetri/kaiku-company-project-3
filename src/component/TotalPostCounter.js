@@ -1,11 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import Utility from "../component/Utility";
 
-
-export default function TotalPostCounter({count}) {
-  useEffect(() => {
-  }, [count])
-  return (
-    <h1>Total post in offline are: {count}</h1>
-  )
+export default function TotalPostCounter({ count }) {
+  useEffect(() => {}, [count]);
+  return <p> Taustatehtävien määrä: {count}</p>;
 }

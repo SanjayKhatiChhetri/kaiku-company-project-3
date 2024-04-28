@@ -65,7 +65,7 @@ function Generalobservation() {
         });
       } else {
         console.log("Site is offline");
-        setMessage("Site is Offline");
+        setMessage("sivusto on offline-tilassa");
         setIsOffline(true);
         readAllData("sync-posts").then((data) => {
           console.log("all indexed data from app.js");
@@ -238,8 +238,10 @@ function Generalobservation() {
   return (
     <div className="App">
       <div className="rest">
-        {isOffline && <ShowMessage message={message} />}
-        {isOffline && <TotalPostCounter count={totalPost} />}
+        <div className="notification_overlay">
+          {isOffline && <ShowMessage message={message} />}
+          {isOffline && <TotalPostCounter count={totalPost} />}
+        </div>
         {/* {isOffline ? <div></div> : ""} */}
         {/* the first box for uploding photo */}
         <UploadPhoto

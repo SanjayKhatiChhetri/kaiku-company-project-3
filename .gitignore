@@ -105,3 +105,13 @@ dist
 
 # TODO
 .todo
+
+#pdf
+/*.pdf
+
+#docx
+/*.docx
+
+#str.md
+/src/str.md
+

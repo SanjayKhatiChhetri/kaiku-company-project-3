@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../component/Footer";
-import { UserIc } from "../Public/Asset/Icons/CostumIcon";
+import Navbar from "../component/Navbar";
 import Button from "@mui/material/Button";
-import vector from "../images/vector.svg";
+import threeDots from "../images/threeDots.svg";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { db, storage } from "../component/FirebaseConfig";
 import {
@@ -138,55 +138,39 @@ function Projectobservation() {
 
   return (
     <div className="projectobs">
-      <div className="navContainer">
-        <nav className="navbar">
-          <div className="user-pic">
-            {" "}
-            <UserIc />
-          </div>
-
-          <div>Projektihavainto</div>
-
-          <div className="threedot">
-            <img src={vector} width={26.23} height={24} alt="Three" />
-          </div>
-        </nav>
-      </div>
-
-      <Footer />
-
-      <div className="point-btn">
-        <Button
-          variant="contained"
-          size="large"
-          onClick={() => {
-            getstartlocation();
-            pointbtnaddData();
-          }}
-        >
-          Pistehavainto
-        </Button>
-      </div>
-
-      <div className="continious-btn">
-        <ToggleButtonGroup
-          color="success"
-          value={alignment}
-          exclusive
-          onChange={handleChange}
-          aria-label="platform"
-        >
-          <ToggleButton
-            value="vesakointipuute"
+        <Navbar pageHeader={`PROJEKTIHAVAINTO`} />
+        <div className="point-btn">
+          <Button
+            variant="contained"
+            size="large"
             onClick={() => {
-              handleClick();
+              getstartlocation();
+              pointbtnaddData();
             }}
           >
-            {" "}
-            Vesakointipuute{" "}
-          </ToggleButton>
-        </ToggleButtonGroup>
-      </div>
+            Pistehavainto
+          </Button>
+        </div>
+        <div className="continious-btn">
+          <ToggleButtonGroup
+            color="success"
+            value={alignment}
+            exclusive
+            onChange={handleChange}
+            aria-label="platform"
+          >
+            <ToggleButton
+              value="vesakointipuute"
+              onClick={() => {
+                handleClick();
+              }}
+            >
+              {" "}
+              Vesakointipuute{" "}
+            </ToggleButton>
+          </ToggleButtonGroup>
+        </div>
+        <Footer />
     </div>
   );
 }

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-  padding: 20%;
+  margin: 70px 0px 0px 0px;
 }
 
 .notification_overlay {
@@ -16,11 +16,11 @@
 
 .notification_overlay > p {
   font-size: 14px;
-    border: 1.5px solid #d9dadf;
-    border-radius: 5px;
-    padding: 3px 15px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 6px 12px 0, rgba(0, 0, 0, 0.01) 0 0 0 1px !important;
-    margin: 5px;
+  border: 1.5px solid #d9dadf;
+  border-radius: 5px;
+  padding: 3px 15px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 12px 0, rgba(0, 0, 0, 0.01) 0 0 0 1px !important;
+  margin: 5px;
 }
 
 .projectobs {
@@ -80,11 +80,10 @@
 .navContainer {
   position: fixed;
   width: 100%;
-  padding-bottom: 34px;
-  left: 0;
+  height: 60px;
+  top: 0;
   right: 0;
   background-color: #eaeaea;
-  top: 0;
 }
 
 .point-btn {
@@ -107,9 +106,7 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  margin-top: 3%;
-  margin-right: 0%;
-  margin-left: 1%;
+  margin: 15px 0px -15px 0px;
 }
 
 .footer {
@@ -174,6 +171,11 @@
 
 .rest[data-uploading="true"] {
   opacity: 0.2;
+}
+
+.rest {
+  display: flex;
+  flex-direction: column;
 }
 
 .uploading[data-uploading="true"] {
@@ -349,6 +351,7 @@
   padding: 0px 20px 0px 20px;
   border-radius: 10px;
   border: 1px solid #d2d3d5;
+  margin: 0px 0px 100px 0px;
 }
 
 .Report-btn {
@@ -441,5 +444,15 @@
     outline: none;
     resize: none;
     width: 100%;
+  }
+
+  .Report-box {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #d2d3d5;
+    margin: 0px 0px 100px 0px;
   }
 }

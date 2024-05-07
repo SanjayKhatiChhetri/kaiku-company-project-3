@@ -238,13 +238,12 @@ function Generalobservation() {
   return (
     <div className="App">
       <div className="rest">
-        <div className="notification_overlay">
-          {isOffline && <ShowMessage message={message} />}
-          {isOffline && <TotalPostCounter count={totalPost} />}
-        </div>
-        {/* {isOffline ? <div></div> : ""} */}
-        {/* the first box for uploding photo */}
-        <UploadPhoto
+          <Navbar pageHeader={`YLEISHAVAINTO`} />
+          <div className="notification_overlay">
+            {isOffline && <ShowMessage message={message} />}
+            {isOffline && <TotalPostCounter count={totalPost} />}
+          </div>
+          <UploadPhoto
           imgState={imgUrl}
           imgSetState={setImgUrl}
           imageFile={imageFiles}
@@ -265,7 +264,6 @@ function Generalobservation() {
         {/* maps */}
         <Dropd type={typ} setType={setTyp} />
 
-        <Navbar />
 
         {/* box for description  */}
         <Description setDescription={setDes} desi={dec} />

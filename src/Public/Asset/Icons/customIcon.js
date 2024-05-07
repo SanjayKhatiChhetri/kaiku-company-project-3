@@ -110,4 +110,21 @@ const UserIc = (props) => (
   </svg>
 );
 
-export { CameraIcon, CameraIconBlue, MediaIc, GpsIc, ThreeDots, UserIc };
+const PlusCircle = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={48}
+    height={48}
+    fill="none"
+    {...props}
+  >
+    <path fill="none" d="M18 32a16 16 0 1 1 0-32 16 16 0 0 1 0 32Z" />
+    <path
+      fill="#616770"
+      d="M16 8a1 1 0 0 1 1 1v6h6a1 1 0 0 1 0 2h-6v6a1 1 0 0 1-2 0v-6h-6a1 1 0 0 1 0-2h6v-6a1 1 0 0 1 1-1Z"
+    />
+  </svg>
+);
+
+
+export { CameraIcon, CameraIconBlue, MediaIc, GpsIc, ThreeDots, UserIc, PlusCircle};

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CameraIcon } from "../Public/Asset/Icons/CostumIcon";
+import { CameraIcon } from "../Public/Asset/Icons/customIcon";
 
 export default function UploadPhoto({
   imgState,
@@ -42,7 +42,6 @@ export default function UploadPhoto({
   return (
     <>
       <div className="Photo-box-outline" style={{ cursor: "pointer" }}>
-
         <input
           // enctype='multipart/form-data'
           onChange={imageSelected}

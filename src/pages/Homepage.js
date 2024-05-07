@@ -28,7 +28,7 @@ function Homepage() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar pageHeader={`KOTISIVU`} />
       <Map />
       <Footer />
     </div>

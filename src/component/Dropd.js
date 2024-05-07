@@ -32,7 +32,6 @@ return (
             paddingLeft: 12,
             fontWeight: "bold",
            
-         
           }),
         }}
       />

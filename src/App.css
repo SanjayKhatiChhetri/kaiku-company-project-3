@@ -42,20 +42,16 @@
 .mapBox {
   padding-top: 102px;
   width: 100%;
-  height: auto;
   border-radius: 10px;
-  padding-bottom: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
 }
 
 .khali {
-  width: 100%;
-  height: 1000px;
-  border: 2px solid black;
-  background-color: blueviolet;
+  width: 95vw;
+  height: 90vh;
+  overflow: hidden;
 }
 
 .threedot {
@@ -80,7 +76,6 @@
 .navContainer {
   position: fixed;
   width: 100%;
-  height: 60px;
   top: 0;
   right: 0;
   background-color: #eaeaea;
@@ -100,13 +95,46 @@
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding: 20px;
   color: #414756;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  margin: 15px 0px -15px 0px;
+}
+
+.navItem-right {
+  padding-right: 6%;
+}
+
+.navItem-left {
+  padding-left: 6%;
+}
+
+.noWifiCounterBadge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.connection-status {
+  display: flex;
+  align-items: flex-start;
+}
+
+.counter-badge {
+  color: #414756;
+  border: #1fe700 solid 1px;
+  padding: 1px 5px;
+  border-radius: 100%;
+  background-color: #1fe700;
+  margin-right: -55px;
+  font-size: 16px;
+  font-weight: 700;
+  position: sticky;
+  top: -100px;
+  left: 50px;
 }
 
 .footer {
@@ -176,6 +204,7 @@
 .rest {
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
 }
 
 .uploading[data-uploading="true"] {
@@ -384,6 +413,12 @@
   }
 }
 @media only screen and (min-width: 768px) {
+  .rest {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
   /* For desktop: */
   .Photo-box-outline,
   .cam-gps-access,

@@ -3,8 +3,7 @@ import home from "../images/home-icn.svg";
 import report from "../images/report-icn.svg";
 import general from "../images/group.svg";
 import { useNavigate } from "react-router-dom";
-import Homepage from "../pages/Homepage";
-import Generalobservation from "../pages/Generalobservation";
+
 
 export default function Footer() {
   const navigate = useNavigate();

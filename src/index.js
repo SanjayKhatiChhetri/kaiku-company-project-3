@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Generalobservation from './pages/Generalobservation';
-import Projectobservation from './pages/Projectobservation';
+// import Projectobservation from './pages/Projectobservation';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 
@@ -18,7 +18,7 @@ root.render(
     <Routes>
       <Route path='/' element={<Homepage/>} />
       <Route path='/Generalobservation' element={<Generalobservation/>} />
-      <Route path='/Projectobservation' element={<Projectobservation/>} />
+      {/* <Route path='/Projectobservation' element={<Projectobservation/>} /> */}
     </Routes>
   
   </BrowserRouter>

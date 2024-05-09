@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import Navbar from "../component/Navbar";
+import { UserIc } from "../Public/Asset/Icons/customIcon";
+
+import HomepagePlusIcon from "../iconUtility/HomepagePlusIcon";
 import Map from "../component/Maped";
-import Footer from "../component/Footer";
 
 function Homepage() {
   useEffect(() => {
@@ -26,11 +28,23 @@ function Homepage() {
     };
   }, []);
 
+  const setLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLat(position.coords.latitude);
+      setLong(position.coords.longitude);
+    });
+  };
+
   return (
     <div className="app">
-      <Navbar pageHeader={`KOTISIVU`} />
+      {/* <div className="rest" data-uploading={isUploading ? "true" : "false"}> */}
+      <Navbar
+        navComponentLeft={<UserIc />}
+        pageHeader={`KOTISIVU`}
+        navComponentRight={<HomepagePlusIcon />}
+      />
       <Map />
-      <Footer />
+      {/* </div> */}
     </div>
   );
 }

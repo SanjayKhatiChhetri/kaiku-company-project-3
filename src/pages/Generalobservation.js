@@ -5,10 +5,10 @@ import Utility from "../component/Utility";
 import Description from "../component/Description";
 import Post from "../component/Post";
 import Dropd from "../component/Dropd";
-import Footer from "../component/Footer";
 import Navbar from "../component/Navbar";
-import ShowMessage from "../component/ShowMessage";
-import TotalPostCounter from "../component/TotalPostCounter";
+import GenObsBackBtn from "../iconUtility/GenObsBackBtn";
+import GenObsNoWifiIndicator from "../iconUtility/GenObsNoWifiIndicator";
+import GenObsWifiIndicator from "../iconUtility/GenObsWifiIndicator";
 //database stuff
 import {
   collection,
@@ -212,7 +212,7 @@ function Generalobservation() {
                         setIsUploading(false);
                         setIsShowMessage(true);
                         setTimeout(() => {
-                          setIsShowMessage(false);
+                        setIsShowMessage(false);
                         }, 3000);
 
                         console.log("File available at", downloadURL);
@@ -238,12 +238,16 @@ function Generalobservation() {
   return (
     <div className="App">
       <div className="rest">
-          <Navbar pageHeader={`YLEISHAVAINTO`} />
-          <div className="notification_overlay">
-            {isOffline && <ShowMessage message={message} />}
-            {isOffline && <TotalPostCounter count={totalPost} />}
-          </div>
-          <UploadPhoto
+        <Navbar
+          navComponentLeft={<GenObsBackBtn />}
+          pageHeader={`YLEISHAVAINTO`}
+          navComponentRight={!isOffline && <GenObsWifiIndicator />}
+          navComponentRightNoNet={isOffline && <GenObsNoWifiIndicator count={totalPost} />}
+        />
+        <div hidden>
+          <div hidden>{!isOffline && <GenObsNoWifiIndicator count={totalPost}/>}</div>
+        </div>
+        <UploadPhoto
           imgState={imgUrl}
           imgSetState={setImgUrl}
           imageFile={imageFiles}
@@ -264,13 +268,10 @@ function Generalobservation() {
         {/* maps */}
         <Dropd type={typ} setType={setTyp} />
 
-
         {/* box for description  */}
         <Description setDescription={setDes} desi={dec} />
         {/* post button */}
         <Post onSubmit={addData} />
-
-        <Footer />
       </div>
     </div>
   );

@@ -451,14 +451,30 @@
     font-weight: bold;
   }
 
-  .map-box {
-    height: 242px;
-    flex-shrink: 0;
+  .mapBox {
+    padding-top: 77px;
+    position: fixed;
+    /* width: 100%;
     border-radius: 10px;
-    border: 1px solid #d2d3d5;
-    background: rgba(255, 255, 255, 0);
-    padding: 25px 20px 20px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
   }
+
+  .khali {
+    /* width: 95vw; */
+    /* height: 90vh; */
+    overflow: hidden;
+  }
+/* 
+  .gmnoprint {
+    display: flex;
+    top: -3px !important;
+    right: 633px !important;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 870px;
+  } */
 
   .description {
     height: 150px;

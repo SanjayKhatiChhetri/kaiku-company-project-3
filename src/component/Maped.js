@@ -35,7 +35,7 @@ export default function Map(lat, lng) {
             center={location}
             zoom={15}
             options={{
-              zoomControl: true,
+              zoomControl: false,
               streetViewControl: false,
               scaleControl: false,
               mapTypeControl: true,

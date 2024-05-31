@@ -40,18 +40,29 @@
 }
 
 .mapBox {
-  padding-top: 102px;
-  width: 100%;
+  padding-top: 77px;
+  position: fixed;
+  /* width: 100%;
   border-radius: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .khali {
-  width: 95vw;
-  height: 90vh;
+  /* width: 95vw; */
+  /* height: 90vh; */
   overflow: hidden;
+}
+
+.gmnoprint {
+  display: flex;
+  /* position: fixed !important; */
+  top: -3px !important;
+  right: 633px !important;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 870px;
 }
 
 .threedot {

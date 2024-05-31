@@ -35,8 +35,9 @@ export default function Map(lat, lng) {
             center={location}
             zoom={15}
             options={{
+              zoomControl: true,
               streetViewControl: false,
-              scaleControl: true,
+              scaleControl: false,
               mapTypeControl: true,
               panControl: true,
               rotateControl: true,
@@ -55,11 +56,11 @@ export default function Map(lat, lng) {
           <button
             onClick={fetchLocation}
             style={{
-              position: "absolute",
-              bottom: "10px",
+              position: "fixed",
+              bottom: "25px",
               right: "20px",
               border: "none",
-              background: "transparent",
+              backgroundColor: "transparent",
               zindex: "1000",
             }}
           >

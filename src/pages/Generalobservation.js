@@ -48,7 +48,7 @@ function Generalobservation() {
     });
   }, [allIndexedData]);
 
-  useEffect(async () => {
+  useEffect(() => {
     if (isOffline) {
       console.log("offline");
     }

@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "../component/Navbar";
+import backBtn from "../images/backBtn.svg";
+import noWifiIc from "../images/noWifiIc.svg";
 import { UserIc } from "../Public/Asset/Icons/customIcon";
 
 import HomepagePlusIcon from "../iconUtility/HomepagePlusIcon";
@@ -43,6 +45,10 @@ function Homepage() {
         pageHeader={`KOTISIVU`}
         navComponentRight={<HomepagePlusIcon />}
       />
+      <div hidden>
+        <img src={backBtn} alt="backBtn" />
+        <img src={noWifiIc} alt="noWifiIc" />
+      </div>
       <Map />
       {/* </div> */}
     </div>

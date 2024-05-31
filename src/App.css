@@ -105,35 +105,25 @@
 }
 
 .navItem-right {
-  padding-right: 6%;
+  padding-right: 10%;
+  position: relative;
+  display: inline-block;
 }
 
 .navItem-left {
   padding-left: 6%;
 }
 
-.noWifiCounterBadge {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.connection-status {
-  display: flex;
-  align-items: flex-start;
-}
-
 .counter-badge {
   color: #414756;
   border: #1fe700 solid 3px;
+  background: #1fe700;
   padding: 1px 6px;
   border-radius: 50%;
-  margin-right: -60px;
   font-size: 16px;
-  font-weight: 700;
-  position: sticky;
-  top: -100px;
-  left: 50px;
+  font-weight: 600;
+  position: absolute;
+  top: -12px;
 }
 
 .footer {

@@ -30,6 +30,9 @@ self.addEventListener("install", function (event) {
         "/static/media/home-icn.1bff412d27c39d43540133f625f59309.svg",
         "/static/media/report-icn.ccfbdbee94b8694cf0c054af894f590b.svg",
         "/static/media/group.da15c6cd14cd733b85448d89dfa2d5ad.svg",
+        "/static/media/noWifiIc.ad23b9f60096e184049dc14ea592ba52.svg",
+        "/static/media/backBtn.79f4263363b3fd5d36855faeca559e2b.svg",
+        "/static/media/pluscircleIcon.5a6664cb45d6320d824cdac8c9b86546.svg",
       ]);
     })
   );

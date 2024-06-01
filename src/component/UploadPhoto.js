@@ -68,7 +68,7 @@ export default function UploadPhoto({
         <list className="photos-grid">
           {imgState.length > 0
             ? imgState.map((v, key) => (
-                <li key={key}>
+                <li className="displayImage-list" key={key}>
                   <img src={v} alt="" />
                 </li>
               ))

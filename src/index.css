@@ -13,3 +13,84 @@ code {
 }
 
 
+/* @media only screen and (min-width: 768px) {
+  
+  CSS For desktop
+  
+  .rest {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .Photo-box-outline,
+  .cam-gps-access,
+  .gps-access,
+  .map-box,
+  .id-user,
+  .description,
+  .Report-box {
+    width: 700px;
+    margin: 0px 0px 50px 0px;
+  }
+
+  .cam-gps-access > h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  .gps-access > h3 {
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+  }
+
+  .mapBox {
+    margin-top: 77px;
+    position: fixed;
+  }
+
+  .khali {
+    overflow: hidden;
+  }
+
+  .description {
+    height: 150px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #d2d3d5;
+  }
+
+  .description-box {
+    padding: 0px;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border-style: none;
+    border-color: Transparent;
+    overflow: auto;
+    outline: none;
+    resize: none;
+    width: 100%;
+  }
+
+  .Report-box {
+    display: flex;
+    justify-content: center;
+    height: 45px;
+    padding: 0px 20px 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #d2d3d5;
+    margin: 0px 0px 100px 0px;
+  }
+} */

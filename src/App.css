@@ -1,9 +1,225 @@
 .App {
   display: flex;
+  margin: 70px 0px 0px 0px;
+}
+
+/* navbar */
+.navContainer {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  background-color: #eaeaea;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  color: #414756;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.navItem-right {
+  padding-right: 10%;
+  position: relative;
+  display: inline-block;
+}
+
+/* offline-conter-badge */
+.counter-badge {
+  color: #414756;
+  border: #1fe700 solid 3px;
+  background: #1fe700;
+  padding: 1px 6px;
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 600;
+  position: absolute;
+  top: -12px;
+}
+
+.navItem-left {
+  padding-left: 6%;
+}
+
+/* Home-Screen */
+/* Map */
+.mapBox {
+  margin-top: 77px;
+  position: fixed;
+}
+
+.khali {
+  overflow: hidden;
+}
+
+/* General-Observation-page */
+/* rest-container-general-obs */
+.rest[data-uploading="true"] {
+  opacity: 0.2;
+}
+
+.rest {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 10px;
+  width: 87%;
+}
+
+/* photo-upload-box */
+.Photo-box-outline,
+.cam-gps-access,
+.gps-access,
+.map-box,
+.drop-d,
+.description,
+.Report-box {
+  margin: 0px 0px 30px 0px;
+}
+
+.Photo-box-outline {
+  border-radius: 10px;
+  border: 1px solid #d2d3d5;
+  background: rgba(255, 255, 255, 0);
+  padding: 2px 2px 2px 2px;
+}
+
+.Photo-box-inner {
+  border-radius: 10px;
+  height: 170px;
+  background: #eaebed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-inner {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  margin: 70px 0px 0px 0px;
+}
+.eclipse {
+  width: 50px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #d9dadf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-t {
+  padding-left: 7%;
+}
+
+.photos-grid {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center; /* Align items to the start of the container */
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.photos-grid > li > img {
+  display: flex;
+  flex: 0 0 auto; /* This means the images won't grow or shrink and will keep their original size */
+  height: 52px;
+  width: 50px;
+  background-color: antiquewhite;
+  margin-right: 5px; /* Add some space between the images */
+  margin: 5px;
+}
+
+.displayImage-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.file-choose-btn {
+  display: none;
+}
+
+/* GPS-Box */
+.cam-gps-access {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d1d2d5;
+  background: #fff;
+  padding: 0px 20px 0px 20px;
+}
+.cam-gps-access > h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.road-address {
+  height: 37px;
+  width: 190px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d2d5;
+}
+
+.location-p {
+  font-size: 15px;
+  font-weight: 700;
+  color: #464646;
+}
+
+.icons-list {
+  list-style: none;
+}
+
+/* Description-box */
+.description {
+  height: 128px;
+  padding: 0px 20px 0px 20px;
+  border-radius: 10px;
+  border: 1px solid #d2d3d5;
+}
+
+.description-box {
+  height: 120px;
+  width: 350px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  font-size: 15px;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  outline: none;
+  resize: none;
+}
+
+/* Submit-button */
+.Report-box {
+  display: flex;
+  justify-content: center;
+  height: 45px;
+  padding: 0px 20px 0px 20px;
+  border-radius: 10px;
+  border: 1px solid #d2d3d5;
+  margin: 0px 0px 100px 0px;
+}
+
+.Report-btn {
+  font-size: 16px;
+  font-weight: 600;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
 }
 
 .notification_overlay {
@@ -32,97 +248,7 @@
   padding: 20%;
 }
 
-.dropd-place {
-  color: #000000;
-}
-
-.photo-t {
-  padding-left: 7%;
-}
-
-.mapBox {
-  margin-top: 77px;
-  position: fixed;
-}
-
-.khali {
-  overflow: hidden;
-}
-
-
-.threedot {
-  padding-left: 4%;
-}
-
-.road-address {
-  height: 37px;
-  width: 190px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #d1d2d5;
-  background: #fff;
-}
-
-.drop-d {
-  padding: 0px 0px 50px 0px;
-}
-
-.navContainer {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  right: 0;
-  background-color: #eaeaea;
-}
-
-.point-btn {
-  display: flex;
-  margin-top: 50px;
-  align-items: center;
-}
-
-.continious-btn {
-  display: flex;
-  margin-top: 50px;
-  align-items: center;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  color: #414756;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-}
-
-.navItem-right {
-  padding-right: 10%;
-  position: relative;
-  display: inline-block;
-}
-
-.navItem-left {
-  padding-left: 6%;
-}
-
-.counter-badge {
-  color: #414756;
-  border: #1fe700 solid 3px;
-  background: #1fe700;
-  padding: 1px 6px;
-  border-radius: 50%;
-  font-size: 16px;
-  font-weight: 600;
-  position: absolute;
-  top: -12px;
-}
-
-.footer {
+/* .footer {
   margin-top: 34px;
   position: fixed;
   left: 0;
@@ -131,16 +257,17 @@
   width: 100%;
   background-color: #f1f1f1;
   padding: 10px;
-}
-.footerView {
+} */
+
+/* .footerView {
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
   padding-left: 7%;
-}
+} */
 
-.footerView figcaption {
+/* .footerView figcaption {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -150,9 +277,57 @@
   font-style: normal;
   font-weight: bold;
   line-height: normal;
+} */
+
+/* .gps-access {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d1d2d5;
+  background: #fff;
+  padding: 0px 20px 0px 20px;
+}
+.gps-access > h3 {
+  font-size: 14px;
+  font-weight: 700;
+} */
+
+/* .map-box {
+  width: 388px;
+  height: 300px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d2d3d5;
+  background: rgba(255, 255, 255, 0);
+  padding: 0px 0px 0px 0px;
+} */
+
+/* BottomNav-bar */
+/* .general {
+  padding-left: 8%;
+  cursor: pointer;
 }
 
-.success-parent[data-success="true"] {
+.home {
+  cursor: pointer;
+}
+
+.project_observation {
+  cursor: pointer;
+} */
+
+/* .loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+} */
+
+/* .success-parent[data-success="true"] {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -160,7 +335,6 @@
   right: 0;
   display: flex;
   flex-direction: column-reverse;
-  /* align-items: end; */
 }
 
 .success-parent[data-success="true"] .success-message {
@@ -168,7 +342,7 @@
   position: sticky;
   bottom: 10px;
   right: 10px;
-  /* left: 0px; */
+ 
 
   width: 15%;
   height: 50px;
@@ -182,16 +356,6 @@
   display: none;
 }
 
-.rest[data-uploading="true"] {
-  opacity: 0.2;
-}
-
-.rest {
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
-}
-
 .uploading[data-uploading="true"] {
   display: block;
   position: absolute;
@@ -202,193 +366,6 @@
   display: none;
 }
 
-.Photo-box-outline,
-.cam-gps-access,
-.gps-access,
-.map-box,
-.id-user,
-.description,
-.Report-box {
-  width: 343px;
-  margin: 0px 0px 50px 0px;
-}
-
-.Photo-box-outline {
-  height: 242px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid #d2d3d5;
-  background: rgba(255, 255, 255, 0);
-  padding: 25px 20px 20px 20px;
-}
-
-.Photo-box-inner {
-  height: 170px;
-  flex-shrink: 0;
-  background: #eaebed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.eclipse {
-  width: 50px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: #d9dadf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.container-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.photos-grid {
-  list-style: none;
-  display: flex;
-  justify-content: flex-start;
-  overflow: scroll, hidden;
-  margin-top: 30px;
-  gap: 1rem;
-}
-.photos-grid > li > img {
-  height: 52px;
-  width: 50px;
-  background-color: antiquewhite;
-  margin-right: 10px;
-}
-
-.cam-gps-access {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid #d1d2d5;
-  background: #fff;
-  padding: 0px 20px 0px 20px;
-}
-.cam-gps-access > h3 {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.gps-access {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid #d1d2d5;
-  background: #fff;
-  padding: 0px 20px 0px 20px;
-}
-.gps-access > h3 {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.location-p {
-  font-size: 15px;
-  font-weight: 700;
-  color: #464646;
-}
-
-.map-box {
-  width: 388px;
-  height: 300px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  border: 1px solid #d2d3d5;
-  background: rgba(255, 255, 255, 0);
-  padding: 0px 0px 0px 0px;
-}
-
-.icons-list {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-}
-.icons-list > li {
-  margin-right: 14px;
-}
-
-.user-pic {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  margin-right: 10px;
-  align-items: center;
-  display: flex;
-}
-
-.general {
-  padding-left: 8%;
-  cursor: pointer;
-}
-
-.home {
-  cursor: pointer;
-}
-
-.project_observation {
-  cursor: pointer;
-}
-
-.description {
-  height: 128px;
-  padding: 0px 20px 0px 20px;
-  border-radius: 10px;
-  border: 1px solid #d2d3d5;
-}
-
-.description-box {
-  /* border: 0px solid #fff; */
-  height: 120px;
-  width: 350px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  font-size: 15px;
-  border-style: none;
-  border-color: Transparent;
-  overflow: auto;
-  outline: none;
-  resize: none;
-}
-
-.Report-box {
-  display: flex;
-  justify-content: center;
-  height: 45px;
-  padding: 0px 20px 0px 20px;
-  border-radius: 10px;
-  border: 1px solid #d2d3d5;
-  margin: 0px 0px 100px 0px;
-}
-
-.Report-btn {
-  font-size: 16px;
-  font-weight: 600;
-  background: #ffffff;
-  border: none;
-  cursor: pointer;
-}
-
-.file-choose-btn {
-  display: none;
-}
-
-.loader {
-  border: 16px solid #f3f3f3;
-  border-top: 16px solid #3498db;
-  border-radius: 50%;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -396,90 +373,4 @@
   100% {
     transform: rotate(360deg);
   }
-}
-@media only screen and (min-width: 768px) {
-  .rest {
-    display: flex;
-    flex-direction: column;
-    margin-top: 15px;
-  }
-
-  /* For desktop: */
-  .Photo-box-outline,
-  .cam-gps-access,
-  .gps-access,
-  .map-box,
-  .id-user,
-  .description,
-  .Report-box {
-    width: 700px;
-    margin: 0px 0px 50px 0px;
-  }
-
-  .cam-gps-access > h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-  }
-
-  .gps-access > h3 {
-    display: block;
-    font-size: 1.17em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-  }
-
-  .mapBox {
-    margin-top: 77px;
-    position: fixed;
-    /* width: 100%;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
-  }
-
-  .khali {
-    /* width: 95vw; */
-    /* height: 90vh; */
-    overflow: hidden;
-  }
-
-  .description {
-    height: 150px;
-    padding: 0px 20px 0px 20px;
-    border-radius: 10px;
-    border: 1px solid #d2d3d5;
-  }
-
-  .description-box {
-    padding: 0px;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    border-style: none;
-    border-color: Transparent;
-    overflow: auto;
-    outline: none;
-    resize: none;
-    width: 100%;
-  }
-
-  .Report-box {
-    display: flex;
-    justify-content: center;
-    height: 45px;
-    padding: 0px 20px 0px 20px;
-    border-radius: 10px;
-    border: 1px solid #d2d3d5;
-    margin: 0px 0px 100px 0px;
-  }
-}
+} */

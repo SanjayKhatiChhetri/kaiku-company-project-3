@@ -7,7 +7,8 @@
 }
 
 .notification_overlay {
-  display: flex;
+  display: block;
+  padding: 5px;
   justify-content: center;
   align-items: flex-end;
   flex-direction: column;
@@ -40,30 +41,14 @@
 }
 
 .mapBox {
-  padding-top: 77px;
+  margin-top: 77px;
   position: fixed;
-  /* width: 100%;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .khali {
-  /* width: 95vw; */
-  /* height: 90vh; */
   overflow: hidden;
 }
 
-.gmnoprint {
-  display: flex;
-  /* position: fixed !important; */
-  top: -3px !important;
-  right: 633px !important;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-top: 870px;
-}
 
 .threedot {
   padding-left: 4%;
@@ -452,7 +437,7 @@
   }
 
   .mapBox {
-    padding-top: 77px;
+    margin-top: 77px;
     position: fixed;
     /* width: 100%;
     border-radius: 10px;
@@ -466,15 +451,6 @@
     /* height: 90vh; */
     overflow: hidden;
   }
-/* 
-  .gmnoprint {
-    display: flex;
-    top: -3px !important;
-    right: 633px !important;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-top: 870px;
-  } */
 
   .description {
     height: 150px;

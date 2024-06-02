@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import Navbar from "../component/Navbar";
-import backBtn from "../images/backBtn.svg";
+import Navbar from "../component/Common/NavBar/Navbar";
+import backBtn from  "../images/backBtn.svg";
 import noWifiIc from "../images/noWifiIc.svg";
-import { UserIc } from "../Public/Asset/Icons/customIcon";
-
-import HomepagePlusIcon from "../iconUtility/HomepagePlusIcon";
-import Map from "../component/Maped";
+import HomepagePlusButton from "../component/Common/NavBar/NavbarIconUtility/HomepagePlusButton";
+import HomepageFormsButton from "../component/Common/NavBar/NavbarIconUtility/HomepageFormsButton";
+import Map from "../component/Homepage/Maped";
 
 function Homepage() {
   useEffect(() => {
@@ -41,9 +40,9 @@ function Homepage() {
     <div className="app">
       {/* <div className="rest" data-uploading={isUploading ? "true" : "false"}> */}
       <Navbar
-        navComponentLeft={<UserIc />}
+        navComponentLeft={<HomepageFormsButton />}
         pageHeader={`KOTISIVU`}
-        navComponentRight={<HomepagePlusIcon />}
+        navComponentRight={<HomepagePlusButton />}
       />
       <div hidden>
         <img src={backBtn} alt="backBtn" />

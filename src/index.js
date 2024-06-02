@@ -1,29 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
-import Generalobservation from './pages/Generalobservation';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+import Generalobservation from "./pages/Generalobservation";
 // import Projectobservation from './pages/Projectobservation';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Homepage from './pages/Homepage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 
-import './registration.js';
+import "./registration.js";
+import FormE18Muurla from "./pages/FormE18Muurla.js";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <BrowserRouter basename='/'>
+  <BrowserRouter basename="/">
     <Routes>
-      <Route path='/' element={<Homepage/>} />
-      <Route path='/Generalobservation' element={<Generalobservation/>} />
+      <Route path="/" element={<Homepage />} />
+      <Route path="/Generalobservation" element={<Generalobservation />} />
+      <Route path="/FormE18Muurla" element={<FormE18Muurla />} />
       {/* <Route path='/Projectobservation' element={<Projectobservation/>} /> */}
     </Routes>
-  
   </BrowserRouter>
-    
-  
 );
 
 // If you want your app to work offline and load faster, you can change

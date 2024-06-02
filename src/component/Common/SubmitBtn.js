@@ -1,9 +1,9 @@
 import React from "react";
 import { Toaster, toast } from 'sonner'
 
-export default function Post({ onSubmit }) {
+export default function SubmitBtn({ onSubmit }) {
 
-const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Tiedosto' }), 2000));
+const promise = () => new Promise((resolve) => setTimeout(() => resolve({ name: 'Tiedosto'}), 1000));
 
 const notify = () => toast.promise(promise, {
     loading: 'Lähetään...',

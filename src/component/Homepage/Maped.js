@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 import { LoadScript, GoogleMap, Marker } from "@react-google-maps/api";
-import { CrossHairIC } from "../Public/Asset/Icons/customIcon";
+import { CrossHairIC } from "../../Public/Asset/Icons/customIcon";
 
 export default function Map(lat, lng) {
   const [location, setLocation] = useState({ lat: 65.01236, lng: 25.46816 });

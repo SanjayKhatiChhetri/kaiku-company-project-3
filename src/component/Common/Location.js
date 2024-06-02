@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { GpsIc } from "../Public/Asset/Icons/customIcon";
+import { GpsIc } from "../../Public/Asset/Icons/customIcon";
 
-function Utility({ setLatitude, setLongitude, lati, longi }) {
+function Location({ setLatitude, setLongitude, lati, longi }) {
   let [latitude, setlatitude] = useState(null);
   let [longitude, setlongitude] = useState(null);
 
@@ -43,4 +43,4 @@ function Utility({ setLatitude, setLongitude, lati, longi }) {
     </>
   );
 }
-export default Utility;
+export default Location;

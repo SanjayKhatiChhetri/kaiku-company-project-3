@@ -1,8 +1,8 @@
 import React from "react";
-import backBtn from "../images/backBtn.svg";
+import backBtn from "../../../../images/backBtn.svg";
 import { useNavigate } from "react-router-dom";
 
-function GenObsBackBtn() {
+function BackBtn() {
   const navigate = useNavigate();
   return (
     <div
@@ -15,4 +15,4 @@ function GenObsBackBtn() {
   );
 }
 
-export default GenObsBackBtn;
+export default BackBtn;

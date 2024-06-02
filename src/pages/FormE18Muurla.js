@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import Navbar from "../component/Common/NavBar/Navbar";
-import BackBtn from "../component/Common/NavBar/NavbarIconUtility/BackBtn";
+import GenObsBackBtn from "../component/Common/NavBar/NavbarIconUtility/BackBtn";
 import GenObsNoWifiIndicator from "../component/Common/NavBar/NavbarIconUtility/GenObsNoWifiIndicator";
 import GenObsWifiIndicator from "../component/Common/NavBar/NavbarIconUtility/GenObsWifiIndicator";
 import SyncedPost from "../component/Common/SyncedPost";
 import UploadPhoto from "../component/Common/UploadPhoto";
 import Location from "../component/Common/Location";
-import TypeSelector from "../component/Common/TypeSelector";
 import Description from "../component/Common/Description";
+import TypeSelector from "../component/Common/TypeSelector";
+import AirTemparature from "../component/E18MuurlaForm/AirTemparature";
+import RoadTemperature from "../component/E18MuurlaForm/RoadTemperature";
+import FrictionInputField from "../component/E18MuurlaForm/FrictionInputField";
+import WeatherCondition from "../component/E18MuurlaForm/WeatherCondition";
 import SubmitBtn from "../component/Common/SubmitBtn";
 //database stuff
 import {
@@ -25,15 +29,18 @@ import { db, storage } from "../component/FirebaseConfig";
 // resizer
 import Resizer from "@meghoshpritam/react-image-file-resizer";
 
-function Generalobservation() {
+function FormE18Muurla() {
   let [typ, setTyp] = useState("");
   let [imgUrl, setImgUrl] = useState([]);
   let [lat, setLat] = useState(0);
   let [long, setLong] = useState(0);
   let [dec, setDes] = useState("");
+  let [airTemp, setAirTemp] = useState("");
+  let [roadTemp, setRoadTemp] = useState("");
+  let [friction, setFriction] = useState("");
+  let [weatherCondition, setWeatherCondition] = useState("");
   let [imageFiles, setImageFiles] = useState([]);
   let [isUploading, setIsUploading] = useState(false);
-  let [isShowMessage, setIsShowMessage] = useState(false);
   let [uploadingPer, setUploadingPer] = useState(0);
   let [message, setMessage] = useState("");
   let [isOffline, setIsOffline] = useState(false);
@@ -172,6 +179,10 @@ function Generalobservation() {
             latitude: lat,
             longitude: long,
             description: dec,
+            airTemperature: airTemp,
+            roadTemperature: roadTemp,
+            roadFriction: friction,
+            weatherConditions: weatherCondition,
             images: imageFiles,
           };
 
@@ -197,6 +208,10 @@ function Generalobservation() {
           latitude: lat,
           longitude: long,
           description: dec,
+          airTemperature: airTemp,
+          roadTemperature: roadTemp,
+          roadFriction: friction,
+          weatherConditions: weatherCondition,
         });
 
         if (docRef) {
@@ -259,6 +274,10 @@ function Generalobservation() {
           setLat(0);
           setLong(0);
           setDes("");
+          setAirT("");
+          setRoadTemp("");
+          setFriction("");
+          setWeatherCon("");
           setImageFiles([]);
         }
       }
@@ -271,27 +290,23 @@ function Generalobservation() {
     <div className="App">
       <div className="rest">
         <Navbar
-          navComponentLeft={<BackBtn />}
-          pageHeader={`YLEISHAVAINTO`}
+          navComponentLeft={<GenObsBackBtn />}
+          pageHeader={`Form E18 Muurla`}
           navComponentRight={!isOffline && <GenObsWifiIndicator />}
           navComponentRightNoNet={
             isOffline && <GenObsNoWifiIndicator count={totalPost} />
           }
         />
-        {/* <div hidden>
-          <div hidden>
-            {!isOffline && <GenObsNoWifiIndicator count={totalPost} />}
-          </div>
-        </div> */}
 
+        {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
+
+        {/* box for uploading photo  */}
         <UploadPhoto
           imgState={imgUrl}
           imgSetState={setImgUrl}
           imageFile={imageFiles}
           setImageFile={setImageFiles}
         />
-
-        {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
 
         {/* box for camera access  and photo select and gps  icons  */}
         <Location
@@ -309,6 +324,20 @@ function Generalobservation() {
 
         {/* box for description  */}
         <Description setDescription={setDes} desi={dec} />
+
+        {/* Air Temperature field */}
+        <AirTemparature setAirTemp={setAirTemp} airTemp={airTemp} />
+        {/* <InputFiled inputValue={inputValue} setInputValue={setInputValue} /> */}
+
+        {/* road temperature */}
+        <RoadTemperature setRoadTemp={setRoadTemp} roadTemp={roadTemp} />
+
+        {/* firction */}
+        <FrictionInputField setFriction={setFriction} friction={friction} />
+
+        {/* weather condition */}
+        <WeatherCondition setWeatherCondition={setWeatherCondition} weatherCondition={weatherCondition} />
+
         {/* post button */}
         <SubmitBtn onSubmit={addData} />
       </div>
@@ -316,4 +345,4 @@ function Generalobservation() {
   );
 }
 
-export default Generalobservation;
+export default FormE18Muurla;

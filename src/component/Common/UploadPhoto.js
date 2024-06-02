@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CameraIcon } from "../Public/Asset/Icons/customIcon";
+import { CameraIcon } from "../../Public/Asset/Icons/customIcon";
 
 export default function UploadPhoto({
   imgState,

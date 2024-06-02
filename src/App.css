@@ -79,6 +79,7 @@
 .map-box,
 .drop-d,
 .description,
+.input-field-container,
 .Report-box {
   margin: 0px 0px 30px 0px;
 }
@@ -184,26 +185,20 @@
 }
 
 /* Description-box */
-.description {
-  height: 128px;
-  padding: 0px 20px 0px 20px;
-  border-radius: 10px;
-  border: 1px solid #d2d3d5;
+
+#description-ctn {
+  height: 128px !important;
 }
 
-.description-box {
-  height: 120px;
-  width: 350px;
-  font-style: normal;
+.input-field-container > textarea {
+  
   font-weight: 600;
   line-height: normal;
   font-size: 15px;
-  border-style: none;
-  border-color: Transparent;
-  overflow: auto;
-  outline: none;
   resize: none;
+  height: 120px;
 }
+
 
 /* Submit-button */
 .Report-box {
@@ -224,31 +219,95 @@
   cursor: pointer;
 }
 
-.notification_overlay {
-  display: block;
-  padding: 5px;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: column;
-  margin-bottom: 5px;
+::placeholder {
+  /* color: hsl(0, 0%, 20%);
+  font-weight: 600;
+  font-size: 20px;
+  opacity: 1; */
+  cursor: default;
+  box-sizing: border-box;
+  font-size: 19px;
+  font-weight: bold;
+  color: hsl(0, 0%, 50%);
+
 }
 
-.notification_overlay > p {
-  font-size: 14px;
-  border: 1.5px solid #d9dadf;
-  border-radius: 5px;
-  padding: 3px 15px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 6px 12px 0, rgba(0, 0, 0, 0.01) 0 0 0 1px !important;
-  margin: 5px;
+/* E-18Murrla-form imput field and description component */
+
+/* typeSelector css for overflow hide */
+.css-b62m3t-container, .css-1fdsijx-ValueContainer , .css-b40fqo-control  {
+  position: unset !important;
+
 }
 
-.projectobs {
+.input-field-container {
+  box-sizing: border-box;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: default;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  min-height: 38px;
+  outline: 0 !important;
+  -webkit-transition: all 100ms;
+  transition: all 100ms;
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  height: 65px;
+  font-size: 19px;
+  padding: 0 20px;
+  font-weight: bold;
+}
+
+.input-field {
+  color: inherit;
+  background: 0px center;
+  opacity: 1;
+  width: 100%;
+  grid-area: 1 / 2;
+  font: inherit;
+  min-width: 2px;
+  border: 0px;
+  margin: 0px;
+  outline: 0px;
+  padding: 0px;
+  visibility: visible;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: inline-grid;
+  grid-area: 1 / 1 / 2 / 3;
+  grid-template-columns: 0 min-content;
+  margin: 2px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  color: hsl(0, 0%, 20%);
+  box-sizing: border-box;
+  
+}
+
+/* .projectobs {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   padding: 20%;
-}
+} */
 
 /* .footer {
   margin-top: 34px;

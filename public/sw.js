@@ -119,8 +119,31 @@ self.addEventListener("sync", (event) => {
             .then((res) => res.json())
             .then((dataFromServer) => {
               deleteItemFromData("sync-posts", dt.id);
+
               console.log("data got back from server");
               console.log(dataFromServer);
+              console.log(dataFromServer.data.desc);
+              console.log(dataFromServer.data.lat);
+              console.log(dataFromServer.data.long);
+
+              let post = {
+                id: new Date().toISOString(),
+                desc: dataFromServer.data.desc,
+                lat: dataFromServer.data.lat,
+                long: dataFromServer.data.long,
+              };
+
+              writeData("synced-data", post)
+                .then(() => {
+                  console.log("synced data registering");
+                })
+                .then(() => {
+                  console.log("synced data registered");
+                })
+                .catch((err) => {
+                  console.log("synced data registration failed");
+                  console.log(`'synced data registration failed: ${err}'`);
+                });
             })
             .catch((error) => {
               console.error("Error:", error);

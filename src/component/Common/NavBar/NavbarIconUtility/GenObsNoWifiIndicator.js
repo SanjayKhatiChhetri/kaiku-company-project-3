@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import noWifiIc from "../images/noWifiIc.svg";
+import noWifiIc from "../../../../images/noWifiIc.svg";
 
 function GenObsNoWifiIndicator({ count }) {
   useEffect(() => {}, [count]);

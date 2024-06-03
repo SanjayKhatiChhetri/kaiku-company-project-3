@@ -35,7 +35,6 @@ function Generalobservation() {
   let [dec, setDes] = useState("");
   let [imageFiles, setImageFiles] = useState([]);
   let [isUploading, setIsUploading] = useState(false);
-  let [isShowMessage, setIsShowMessage] = useState(false);
   let [uploadingPer, setUploadingPer] = useState(0);
   let [message, setMessage] = useState("");
   let [isOffline, setIsOffline] = useState(false);
@@ -56,7 +55,7 @@ function Generalobservation() {
         console.log("all data deleted");
         setTimeout(() => {
           setSyncedData(0);
-        }, 5000);
+        }, 6000);
       });
   }, [syncedData]);
 
@@ -100,7 +99,7 @@ function Generalobservation() {
             console.log(data);
             setSyncedData((prev) => prev + data.length);
           });
-        }, 5000);
+        }, 6850);
       } else {
         console.log("Site is offline");
         setMessage("sivusto on offline-tilassa");
@@ -187,6 +186,17 @@ function Generalobservation() {
               console.log("New post registered");
               console.log(post);
               setAllIndexedData([...allIndexedData, post]);
+              setTyp("");
+              setImgUrl([]);
+              setLat(0);
+              setLong(0);
+              setDes("");
+              setImageFiles([]);
+              setIsUploading(false);
+              setUploadingPer(0);
+              setMessage("");
+              setAllIndexedData([]);
+              setTotalPost(null);
             })
             .catch((err) => {
               console.log("sync registration failed");
@@ -284,7 +294,7 @@ function Generalobservation() {
           <img src={backBtn} alt="backBtn" />
           <img src={noWifiIc} alt="noWifiIc" />
         </div>
-        
+
         {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
 
         <UploadPhoto

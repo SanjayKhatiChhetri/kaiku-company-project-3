@@ -40,7 +40,7 @@ function FormE18Muurla() {
   let [airTemp, setAirTemp] = useState("");
   let [roadTemp, setRoadTemp] = useState("");
   let [friction, setFriction] = useState("");
-  let [weatherCondition, setWeatherCondition] = useState("");
+  let [weatherCond, setWeatherCondition] = useState("");
   let [imageFiles, setImageFiles] = useState([]);
   let [isUploading, setIsUploading] = useState(false);
   let [uploadingPer, setUploadingPer] = useState(0);
@@ -184,7 +184,7 @@ function FormE18Muurla() {
             airTemperature: airTemp,
             roadTemperature: roadTemp,
             roadFriction: friction,
-            weatherConditions: weatherCondition,
+            weatherCondition: weatherCond,
             images: imageFiles,
           };
 
@@ -198,6 +198,23 @@ function FormE18Muurla() {
               console.log("New post registered");
               console.log(post);
               setAllIndexedData([...allIndexedData, post]);
+
+              //rest the form after submit
+              setTyp("");
+              setImgUrl([]);
+              setLat(0);
+              setLong(0);
+              setDes("");
+              setAirTemp("");
+              setRoadTemp("");
+              setFriction("");
+              setWeatherCondition(""); // Ensure this line is correctly placed
+              setImageFiles([]);
+              setIsUploading(false);
+              setUploadingPer(0);
+              setMessage("");
+              setAllIndexedData([]);
+              setTotalPost(null);
             })
             .catch((err) => {
               console.log("sync registration failed");
@@ -213,7 +230,7 @@ function FormE18Muurla() {
           airTemperature: airTemp,
           roadTemperature: roadTemp,
           roadFriction: friction,
-          weatherConditions: weatherCondition,
+          weatherCondition: weatherCond,
         });
 
         if (docRef) {
@@ -272,14 +289,17 @@ function FormE18Muurla() {
               });
           });
 
+          // Reset state
           setImgUrl([]);
           setLat(0);
           setLong(0);
           setDes("");
-          setAirT("");
+          setAirTemp("");
           setRoadTemp("");
           setFriction("");
-          setWeatherCon("");
+          console.log("Resetting weatherCondition");
+          setWeatherCondition("");
+          console.log("weatherCondition reset");
           setImageFiles([]);
         }
       }
@@ -343,8 +363,8 @@ function FormE18Muurla() {
 
         {/* weather condition */}
         <WeatherCondition
-          setWeatherCondition={setWeatherCondition}
-          weatherCondition={weatherCondition}
+          setWeatherCond={setWeatherCondition}
+          weatherCond={weatherCond}
         />
 
         {/* post button */}

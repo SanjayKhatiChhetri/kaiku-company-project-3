@@ -32,6 +32,11 @@ import { db, storage } from "../component/FirebaseConfig";
 import Resizer from "@meghoshpritam/react-image-file-resizer";
 
 function FormE18Muurla() {
+  let [message, setMessage] = useState("");
+  let [isOffline, setIsOffline] = useState(false);
+  let [allIndexedData, setAllIndexedData] = useState([]);
+  let [totalPost, setTotalPost] = useState(null);
+  let [syncedData, setSyncedData] = useState(0);
   let [typ, setTyp] = useState("");
   let [imgUrl, setImgUrl] = useState([]);
   let [lat, setLat] = useState(0);
@@ -40,15 +45,10 @@ function FormE18Muurla() {
   let [airTemp, setAirTemp] = useState("");
   let [roadTemp, setRoadTemp] = useState("");
   let [friction, setFriction] = useState("");
-  let [weatherCond, setWeatherCondition] = useState("");
+  let [wthrCondtion, setWthrCondition] = useState("");
   let [imageFiles, setImageFiles] = useState([]);
   let [isUploading, setIsUploading] = useState(false);
   let [uploadingPer, setUploadingPer] = useState(0);
-  let [message, setMessage] = useState("");
-  let [isOffline, setIsOffline] = useState(false);
-  let [allIndexedData, setAllIndexedData] = useState([]);
-  let [totalPost, setTotalPost] = useState(null);
-  let [syncedData, setSyncedData] = useState(0);
 
   useEffect(() => {
     readAllData("synced-data")
@@ -184,7 +184,7 @@ function FormE18Muurla() {
             airTemperature: airTemp,
             roadTemperature: roadTemp,
             roadFriction: friction,
-            weatherCondition: weatherCond,
+            weatherCondition: wthrCondtion,
             images: imageFiles,
           };
 
@@ -208,7 +208,7 @@ function FormE18Muurla() {
               setAirTemp("");
               setRoadTemp("");
               setFriction("");
-              setWeatherCondition(""); // Ensure this line is correctly placed
+              setWthrCondition(""); // Ensure this line is correctly placed
               setImageFiles([]);
               setIsUploading(false);
               setUploadingPer(0);
@@ -230,7 +230,7 @@ function FormE18Muurla() {
           airTemperature: airTemp,
           roadTemperature: roadTemp,
           roadFriction: friction,
-          weatherCondition: weatherCond,
+          weatherCondition: wthrCondtion,
         });
 
         if (docRef) {
@@ -298,7 +298,7 @@ function FormE18Muurla() {
           setRoadTemp("");
           setFriction("");
           console.log("Resetting weatherCondition");
-          setWeatherCondition("");
+          setWthrCondition("");
           console.log("weatherCondition reset");
           setImageFiles([]);
         }
@@ -363,8 +363,8 @@ function FormE18Muurla() {
 
         {/* weather condition */}
         <WeatherCondition
-          setWeatherCond={setWeatherCondition}
-          weatherCond={weatherCond}
+          setWthrCondition={setWthrCondition}
+          wthrCondtion={wthrCondtion}
         />
 
         {/* post button */}

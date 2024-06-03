@@ -1,11 +1,11 @@
 import React from "react";
 
-function WeatherCondition({ setWeatherCond, WeatherCond }) {
+function WeatherCondition({ setWthrCondition, wthrCondtion }) {
   function weatherConditionChanged(e) {
     //enables writing in weather condition field
     console.log("from weather condition");
     console.log(e.target.value);
-    setWeatherCond(e.target.value);
+    setWthrCondition(e.target.value);
   }
   return (
     <>
@@ -13,7 +13,7 @@ function WeatherCondition({ setWeatherCond, WeatherCond }) {
         <input
           className="input-field"
           onChange={weatherConditionChanged}
-          value={WeatherCond}
+          value={wthrCondtion}
           type="text"
           placeholder="Sääolosuhteet"
         />

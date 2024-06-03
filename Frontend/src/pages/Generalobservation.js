@@ -54,7 +54,7 @@ function Generalobservation() {
         console.log("all data deleted");
         setTimeout(() => {
           setSyncedData(0);
-        }, 5000);
+        }, 8000);
       });
   }, [syncedData]);
 
@@ -98,7 +98,7 @@ function Generalobservation() {
             console.log(data);
             setSyncedData((prev) => prev + data.length);
           });
-        }, 2000);
+        }, 5000);
       } else {
         console.log("Site is offline");
         setMessage("sivusto on offline-tilassa");

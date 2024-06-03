@@ -112,7 +112,7 @@ self.addEventListener("sync", (event) => {
 
           console.log("before fetching");
 
-          fetch(`${process.env.REACT_APP_API_URI}/checkingData`, {
+          fetch(`https://kaiku-backend.onrender.com/checkingData`, {
             method: "POST",
             body: formData,
           })

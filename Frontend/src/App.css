@@ -26,7 +26,6 @@
 }
 
 .navItem-right {
-  padding-right: 10%;
   position: relative;
   display: inline-block;
 }
@@ -42,10 +41,6 @@
   font-weight: 600;
   position: absolute;
   top: -12px;
-}
-
-.navItem-left {
-  padding-left: 6%;
 }
 
 /* Home-Screen */
@@ -191,14 +186,12 @@
 }
 
 .input-field-container > textarea {
-  
   font-weight: 600;
   line-height: normal;
   font-size: 15px;
   resize: none;
   height: 120px;
 }
-
 
 /* Submit-button */
 .Report-box {
@@ -229,15 +222,18 @@
   font-size: 19px;
   font-weight: bold;
   color: hsl(0, 0%, 50%);
-
 }
 
 /* E-18Murrla-form imput field and description component */
 
 /* typeSelector css for overflow hide */
-.css-b62m3t-container, .css-1fdsijx-ValueContainer , .css-b40fqo-control  {
-  position: unset !important;
+.css-b62m3t-container {
+  position: relative !important;
+}
 
+.css-1f43avz-a11yText-A11yText,
+.css-1f43avz-a11yText-A11yText {
+  position: unset !important;
 }
 
 .input-field-container {
@@ -298,7 +294,6 @@
   padding-top: 2px;
   color: hsl(0, 0%, 20%);
   box-sizing: border-box;
-  
 }
 
 /* .projectobs {

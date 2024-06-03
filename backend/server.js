@@ -15,7 +15,7 @@ const { ref, uploadBytesResumable, getDownloadURL } = require('@firebase/storage
 const {db, storage} = require('./FirebaseConfig');
 
 app.listen(PORT, () => {
-    console.log('Server is running on port ' + PORT);
+    console.log(`Server is running on port ${PORT}`);
 
     app.get('/', (req, res) => {
         console.log('home page is running');

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import backBtn from "../images/backBtn.svg";
+import noWifiIc from "../images/noWifiIc.svg";
 import "../App.css";
 import Navbar from "../component/Common/NavBar/Navbar";
 import BackBtn from "../component/Common/NavBar/NavbarIconUtility/BackBtn";
@@ -54,7 +56,7 @@ function Generalobservation() {
         console.log("all data deleted");
         setTimeout(() => {
           setSyncedData(0);
-        }, 8000);
+        }, 5000);
       });
   }, [syncedData]);
 
@@ -278,11 +280,12 @@ function Generalobservation() {
             isOffline && <GenObsNoWifiIndicator count={totalPost} />
           }
         />
-        {/* <div hidden>
-          <div hidden>
-            {!isOffline && <GenObsNoWifiIndicator count={totalPost} />}
-          </div>
-        </div> */}
+        <div hidden>
+          <img src={backBtn} alt="backBtn" />
+          <img src={noWifiIc} alt="noWifiIc" />
+        </div>
+        
+        {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
 
         <UploadPhoto
           imgState={imgUrl}
@@ -290,8 +293,6 @@ function Generalobservation() {
           imageFile={imageFiles}
           setImageFile={setImageFiles}
         />
-
-        {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
 
         {/* box for camera access  and photo select and gps  icons  */}
         <Location

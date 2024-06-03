@@ -28,6 +28,7 @@
 .navItem-right {
   position: relative;
   display: inline-block;
+  padding-right: 3%;
 }
 
 /* offline-conter-badge */

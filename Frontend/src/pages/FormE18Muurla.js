@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import backBtn from "../images/backBtn.svg";
+import noWifiIc from "../images/noWifiIc.svg";
 import "../App.css";
 import Navbar from "../component/Common/NavBar/Navbar";
 import GenObsBackBtn from "../component/Common/NavBar/NavbarIconUtility/BackBtn";
@@ -298,6 +300,10 @@ function FormE18Muurla() {
           }
         />
 
+        <div hidden>
+          <img src={backBtn} alt="backBtn" />
+          <img src={noWifiIc} alt="noWifiIc" />
+        </div>
         {syncedData > 0 ? <SyncedPost count={syncedData} /> : ""}
 
         {/* box for uploading photo  */}
@@ -336,7 +342,10 @@ function FormE18Muurla() {
         <FrictionInputField setFriction={setFriction} friction={friction} />
 
         {/* weather condition */}
-        <WeatherCondition setWeatherCondition={setWeatherCondition} weatherCondition={weatherCondition} />
+        <WeatherCondition
+          setWeatherCondition={setWeatherCondition}
+          weatherCondition={weatherCondition}
+        />
 
         {/* post button */}
         <SubmitBtn onSubmit={addData} />

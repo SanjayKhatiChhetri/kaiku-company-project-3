@@ -1,0 +1,17 @@
+{
+  "name": "Kaiku",
+  "version": "1.0.0",
+  "description": "Pwa App",
+  "main": "main.js",
+  "scripts": {
+    "build": "if-env TYPE=backend && (cd backend && npm run install) || (cd Frontend && npm run build)",
+    "server": "node .backend/server.js",
+    "client": "cd Frontend && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "if-env": "^1.0.4"
+  },
+  "devDependencies": {}
+}

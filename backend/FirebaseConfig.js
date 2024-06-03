@@ -7,6 +7,12 @@ const {getFirestore} = require('firebase/firestore');
 const {getStorage} = require('firebase/storage');
 
 
+
+//use env variables
+
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyCAYEOrc1Gor6bvdH3mPaqOLdx1tdC1HdU",
     authDomain: "project-pw-53d67.firebaseapp.com",

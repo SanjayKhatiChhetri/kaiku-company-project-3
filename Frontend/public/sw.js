@@ -112,7 +112,7 @@ self.addEventListener("sync", (event) => {
 
           console.log("before fetching");
 
-          fetch("http://localhost:5000/checkingData", {
+          fetch(`${process.env.REACT_APP_API_URI}/checkingData`, {
             method: "POST",
             body: formData,
           })

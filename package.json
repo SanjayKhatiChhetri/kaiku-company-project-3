@@ -4,7 +4,7 @@
   "description": "Pwa App",
   "main": "main.js",
   "scripts": {
-    "build": "if-env TYPE=backend && (cd backend && npm run install) || (cd Frontend && npm run build)",
+    "build": "if-env TYPE=server && (cd backend && npm run install) || (cd Frontend && npm run build)",
     "server": "node .backend/server.js",
     "client": "cd Frontend && npm start"
   },

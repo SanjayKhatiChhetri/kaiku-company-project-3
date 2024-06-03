@@ -7,19 +7,21 @@ const app = new express();
 
 app.use(cors());
 
+app.use(express.json());
 app.use(bodyParser.json());
 
 const { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } = require('@firebase/firestore');
 const { ref, uploadBytesResumable, getDownloadURL } = require('@firebase/storage');
 const {db, storage} = require('./FirebaseConfig');
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
     console.log('Server is running on port ', PORT);
 
     app.get('/', (req, res) => {
         console.log('home page is running');
-        res.json({ message: 'Welcome to the server' });
+        res.send({ message: 'Welcome to the server' });
     });
 
     const upload = multer();

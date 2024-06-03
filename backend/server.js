@@ -14,6 +14,8 @@ const { collection, getDocs, addDoc, updateDoc, deleteDoc, doc, arrayUnion } = r
 const { ref, uploadBytesResumable, getDownloadURL } = require('@firebase/storage');
 const {db, storage} = require('./FirebaseConfig');
 
+const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 

@@ -19,7 +19,8 @@ const firebaseConfig = {
     projectId: "project-pw-53d67",
     storageBucket: "project-pw-53d67.appspot.com",
     messagingSenderId: "54968724989",
-    appId: "1:54968724989:web:07c6ac12f11dc033203d94"
+    appId: "1:54968724989:web:07c6ac12f11dc033203d94",
+    ssl: true,
 };
 
 

@@ -1,25 +1,28 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "purpose": "maskable",
+      "sizes": "512x512",
+      "src": "./tentrioIC512_maskable.png",
+      "type": "image/png"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any",
+      "sizes": "512x512",
+      "src": "./tentrioIC512_rounded.png",
+      "type": "image/png"
     }
   ],
-  "start_url": ".",
+  "orientation": "any",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "dir": "auto",
+  "lang": "en-US",
+  "name": "Kaiku ",
+  "short_name": "Tentrio Road Sighting ",
+  "description": "This app/ is a road sighting pwa app, which is allows user to report the sightings in network constrained area.",
+  "start_url": "https://kaiku-beta.vercel.app/",
+  "scope": "https://kaiku-beta.vercel.app/",
+  "id": "https://kaiku-beta.vercel.app/"
 }
